@@ -2,20 +2,22 @@ from keras.applications.resnet50 import ResNet50, preprocess_input
 from keras.callbacks import ModelCheckpoint
 from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
+from resnet152 import ResNet152
 from keras.applications.resnet50 import preprocess_input, decode_predictions
 from keras import Model
 import numpy as np
 
 HEIGHT = 300
 WIDTH = 300
-base_model = ResNet50(weights='imagenet',include_top =False,input_shape =(HEIGHT, WIDTH, 3))
+#base_model = ResNet50(weights='imagenet',include_top =False,input_shape =(HEIGHT, WIDTH, 3))
+base_model = ResNet152(weights='imagenet',include_top=False,input_shape=(HEIGHT, WIDTH, 3))
 
 TRAIN_DIR = "dataset"
 HEIGHT = 300
 WIDTH = 300
 BATCH_SIZE = 8
 
-train_datagen =  ImageDataGenerator(
+train_datagen = ImageDataGenerator(
       preprocessing_function=preprocess_input,
       rotation_range=90,
       horizontal_flip=True,
@@ -67,7 +69,7 @@ num_train_images = 8
 adam = Adam(lr=0.00001)
 finetune_model.compile(adam, loss='categorical_crossentropy', metrics=['accuracy'])
 
-filepath="./checkpoints/" + "  ResNet50" + "_model_weights.h5"
+filepath="./checkpoints/" + "  ResNet152" + "_model_weights.h5"
 checkpoint = ModelCheckpoint(filepath, monitor=["acc"], verbose=1, mode='max')
 callbacks_list = [checkpoint]
 
