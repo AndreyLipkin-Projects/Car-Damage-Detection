@@ -4,18 +4,21 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing import image
 from resnet152 import ResNet152
 from keras.applications.resnet50 import preprocess_input, decode_predictions
-from keras import Model
+from keras import Model, metrics
 import numpy as np
+
+import matplotlib.pyplot as plt
+
 
 HEIGHT = 300
 WIDTH = 300
-#base_model = ResNet50(weights='imagenet',include_top =False,input_shape =(HEIGHT, WIDTH, 3))
-base_model = ResNet152(weights='imagenet',include_top=False,input_shape=(HEIGHT, WIDTH, 3))
+base_model = ResNet50(weights='imagenet',include_top =False,input_shape =(HEIGHT, WIDTH, 3))
+#base_model = ResNet152(weights='imagenet',include_top=False,input_shape=(HEIGHT, WIDTH, 3))
 
 TRAIN_DIR = "dataset"
 HEIGHT = 300
 WIDTH = 300
-BATCH_SIZE = 8
+BATCH_SIZE = 2
 
 train_datagen = ImageDataGenerator(
       preprocessing_function=preprocess_input,
@@ -51,8 +54,8 @@ def build_finetune_model(base_model, dropout, fc_layers, num_classes):
     return finetune_model
 
 
-class_list = ["car", "crosswalk", "road", "traficlight"]
-FC_LAYERS = [1024, 1024]
+class_list = ["damage","whole"]
+FC_LAYERS = [512, 512]
 dropout = 0.5
 
 finetune_model = build_finetune_model(base_model,
@@ -62,20 +65,43 @@ finetune_model = build_finetune_model(base_model,
 
 from keras.optimizers import SGD, Adam
 
-NUM_EPOCHS = 10
-BATCH_SIZE = 4
-num_train_images = 8
+NUM_EPOCHS = 100
+BATCH_SIZE = 10
+num_train_images = 1020
 
-adam = Adam(lr=0.00001)
-finetune_model.compile(adam, loss='categorical_crossentropy', metrics=['accuracy'])
+adam = Adam(lr=0.001)
+#finetune_model.compile(adam, loss='categorical_crossentropy', metrics=['accuracy'])
+finetune_model.compile(adam, loss='categorical_crossentropy', metrics=[metrics.categorical_accuracy, 'accuracy', 'acc'])
 
-filepath="./checkpoints/" + "  ResNet152" + "_model_weights.h5"
+filepath="./checkpoints/" + "  ResNet50" + "_model_weights.h5"
+#filepath="./checkpoints/" + "  ResNet152" + "_model_weights.h5"
 checkpoint = ModelCheckpoint(filepath, monitor=["acc"], verbose=1, mode='max')
 callbacks_list = [checkpoint]
 
 history = finetune_model.fit_generator(train_generator, epochs=NUM_EPOCHS, workers=8,
                                        steps_per_epoch=num_train_images // BATCH_SIZE,
                                        shuffle=True, callbacks=callbacks_list)
+# list all data in history
+print(history.history.keys())
+# summarize history for accuracy
+plt.plot(history.history['acc'])
+
+#plt.plot(history.history['val_accuracy'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+# summarize history for loss
+'''
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
+'''
 
 model_json = base_model.to_json()
 with open("./model.json", "w") as json_file:
@@ -84,7 +110,7 @@ with open("./model.json", "w") as json_file:
 base_model.save_weights("./weights.h5")
 
 
-img_path = 'car.jpg'
+img_path = 'car.jpeg'
 img = image.load_img(img_path, target_size=(300, 300))
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)

@@ -18,12 +18,13 @@ def load_image(img_path, show=False):
 
 
 # load the model we saved
-filepath="./checkpoints/" + "  ResNet152" + "_model_weights.h5"
+filepath="./checkpoints/" + "  ResNet50" + "_model_weights.h5"
+#filepath="./checkpoints/" + "  ResNet152" + "_model_weights.h5"
 model = load_model(filepath)
 
 # image path
 
-img_path = 'car.jpeg'
+img_path = 'car.jpg'
 img = image.load_img(img_path, target_size=(300, 300))
 x = image.img_to_array(img)
 x = np.expand_dims(x, axis=0)
