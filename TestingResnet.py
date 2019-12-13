@@ -14,8 +14,8 @@ now = datetime.now()
 TimeString = ""
 timestamp = datetime.timestamp(now)
 DateTime_object = datetime.fromtimestamp(int(timestamp))
-TimeString = DateTime_object.strftime("%Y-%m-%d_%X") #Formatted string
-
+TimeString = DateTime_object.strftime("Date - %Y-%m-%d Time - %X") #Formatted string
+Stamp = TimeString.replace(":","_")
 
 HEIGHT = 300
 WIDTH = 300
@@ -44,8 +44,7 @@ val_datagen = ImageDataGenerator(
     preprocessing_function=preprocess_input,
     rotation_range=90,
     horizontal_flip=True,
-    vertical_flip=True,
-)
+    vertical_flip=True,)
 train_generator = train_datagen.flow_from_directory(VAL_DIR,
                                                     target_size=(HEIGHT, WIDTH),
                                                     batch_size=TRAIN_BATCH_SIZE,
@@ -138,7 +137,7 @@ plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'validate'], loc='upper left')
 plt.show()
-plt.savefig("./checkpoints/" + TimeString + "_Accuracy.jpeg")
+plt.savefig("./checkpoints/" + Stamp + "_Accuracy.jpeg")
 # summarize history for loss
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
@@ -147,7 +146,7 @@ plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['train', 'validate'], loc='upper left')
 plt.show()
-plt.savefig("./checkpoints/" + TimeString + "_Loss.jpeg")
+plt.savefig("./checkpoints/" + Stamp + "_Loss.jpeg")
 
 model_json = base_model.to_json()
 with open("./model.json", "w") as json_file:
