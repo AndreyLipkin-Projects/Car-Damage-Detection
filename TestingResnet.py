@@ -9,6 +9,11 @@ import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 from datetime import datetime
+import time
+
+
+
+
 #Creating a timestamp in order to sort the plot results
 now = datetime.now()
 TimeString = ""
@@ -121,13 +126,15 @@ callbacks_list = [checkpoint]  # ,PlotLossesKeras()
 finetune_model.summary()
 
 # Training the model using trian and val datasets set up at the top of the file
+Start_time = time.time()
 history = finetune_model.fit_generator(train_generator, epochs=NUM_EPOCHS, workers=8,
                                        steps_per_epoch=num_train_images // TRAIN_BATCH_SIZE,
                                        validation_data=val_generator,
                                        validation_steps=num_val_images // VAL_BATCH_SIZE,
                                        shuffle=True, callbacks=callbacks_list)
+End_time = time.time()
 
-# list all data in history
+# list all data in history for current training, both loss and accuracy compared between the training and validation sets. also save the tables locally.
 print(history.history.keys())
 # summarize history for accuracy
 plt.plot(history.history['acc'])
@@ -136,8 +143,9 @@ plt.title('model accuracy')
 plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'validate'], loc='upper left')
+figAcc = plt.gcf()
 plt.show()
-plt.savefig("./checkpoints/" + Stamp + "_Accuracy.jpeg")
+figAcc.savefig("./checkpoints/" + Stamp + "_Accuracy.jpeg")
 # summarize history for loss
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
@@ -145,8 +153,13 @@ plt.title('model loss')
 plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['train', 'validate'], loc='upper left')
+figLoss = plt.gcf()
 plt.show()
-plt.savefig("./checkpoints/" + Stamp + "_Loss.jpeg")
+figLoss.savefig("./checkpoints/" + Stamp + "_Loss.jpeg")
+#Runtime in minutes
+Run_time = (End_time - Start_time) // 60
+print(Run_time)
+
 
 model_json = base_model.to_json()
 with open("./model.json", "w") as json_file:
