@@ -10,9 +10,29 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from datetime import datetime
 import time
+import os
+from keras.optimizers import SGD, Adam
 
 
+#General variables for GUI interaction and choices :
+Two_Classes = ['damage','whole']
+Three_Classes = ['front','rear','side']
+runIdentifier = -1
+Epocs_from_Gui = -1
+learningRate_From_Gui = -1
+regularizationRate_From_Gui = -1
+numTrain_From_Gui = -1
+numVal_From_Gui = -1
+Train_BatchSize_From_Gui = -1
+Val_BatchSize_From_Gui = -1
+Graph_Naming = -1
 
+#In order to build a correct project folder hirarchy, we make sure a folder for the saved model exists, if not we make one
+try:
+    os.makedirs("./checkpoints")
+except FileExistsError:
+    # directory already exists
+    pass
 
 #Creating a timestamp in order to sort the plot results
 now = datetime.now()
@@ -31,8 +51,6 @@ base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(HEIGHT
 
 TRAIN_DIR = "dataset/training"
 VAL_DIR = "dataset/validation"
-HEIGHT = 300
-WIDTH = 300
 TRAIN_BATCH_SIZE = 184
 VAL_BATCH_SIZE = 46
 
@@ -94,9 +112,6 @@ FC_LAYERS = [128, 128]
 dropout = 0.5
 
 # Import a model if we have one saved, to continue training from the last training, else make a new one
-import os
-from keras.optimizers import SGD, Adam
-
 if os.path.exists("./checkpoints/" + "  ResNet50" + "_model.h5"):
     finetune_model = tf.keras.models.load_model("./checkpoints/" + "  ResNet50" + "_model.h5")
 else:
