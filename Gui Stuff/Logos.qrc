@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="newPrefix">
-    <file>output-onlinepngtools (2).png</file>
+  <qresource prefix="Logo">
+    <file>Logo.png</file>
   </qresource>
 </RCC>

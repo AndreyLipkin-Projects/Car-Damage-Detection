@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <selectedon>:/Logos/output-onlinepngtools (2).png</selectedon>
+    <selectedon>:/Logo/Logo.png</selectedon>
    </iconset>
   </property>
   <property name="documentMode">
@@ -84,8 +84,8 @@
    <widget class="QLabel" name="LogoLabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
+      <x>50</x>
+      <y>30</y>
       <width>231</width>
       <height>201</height>
      </rect>
@@ -100,7 +100,7 @@
      <enum>QFrame::NoFrame</enum>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Logos/output-onlinepngtools (2).png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Logo/Logo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="Logotext">
@@ -137,7 +137,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="Icons.qrc"/>
+  <include location="Logos.qrc"/>
  </resources>
  <connections/>
 </ui>
