@@ -20,15 +20,13 @@ def Prediction (modelType,img_path) :
 
     # load the model we saved, also, according to the results from the Two_Class model , if the result passes the
     #the threshold defined for it,
-    modelPath = "./checkpoints/" + modelType + "ResNet50_model.h5"
+    modelPath = "./checkpoints/" + modelType + "/" + "ResNet50_model.h5"
     model = load_model(modelPath)
     img = image.load_img(img_path, target_size=(img_width, img_height))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
     preds = model.predict(x)
-    print(preds)
-
     '''
     ##restore and load
     json_file = open("./model.json", "r")
