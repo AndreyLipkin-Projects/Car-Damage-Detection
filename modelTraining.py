@@ -1,4 +1,4 @@
-def modelTrainer():
+def modelTrainer(modelType):
     from keras.applications.resnet50 import ResNet50, preprocess_input
     from keras.callbacks import ModelCheckpoint
     from keras.preprocessing.image import ImageDataGenerator
@@ -163,9 +163,12 @@ def modelTrainer():
     dropout = 0.5
 
     # Import a model if we have one saved, to continue training from the last training, else make a new one
-    if os.path.exists("./checkpoints/" + "  ResNet50" + "_model.h5"):
-        finetune_model = tf.keras.models.load_model("./checkpoints/" + "  ResNet50" + "_model.h5")
+    modelPath = "./checkpoints/" + modelType + "/" + "ResNet50_model.h5"
+    if os.path.exists(modelPath):
+        print('Model named ' + modelType + ' Successfully loaded')
+        finetune_model = tf.keras.models.load_model(modelPath)
     else:
+        print('Building new model')
         finetune_model = build_finetune_model(base_model,
                                               l1_Reg=l1_Reg,
                                               dropout=dropout,
@@ -178,9 +181,8 @@ def modelTrainer():
                                metrics=[metrics.categorical_accuracy, 'accuracy', 'acc'])
 
     from livelossplot import PlotLossesKeras
-    filepath = "./checkpoints/" + "  ResNet50" + "_model.h5"
     # filepath="./checkpoints/" + "  ResNet152" + "_model_weights.h5"
-    checkpoint = ModelCheckpoint(filepath, monitor=["acc"], verbose=1, mode='max')
+    checkpoint = ModelCheckpoint(modelPath, monitor=["acc"], verbose=1, mode='max')
     callbacks_list = [checkpoint]  # ,PlotLossesKeras()
 
     # Present the model's structure
@@ -205,7 +207,7 @@ def modelTrainer():
     plt.legend(['train', 'validate'], loc='upper left')
     figAcc = plt.gcf()
     plt.show()
-    figAcc.savefig("./checkpoints/" + Stamp + "_Accuracy.jpeg")
+    figAcc.savefig("./checkpoints/" + modelType + "/" + Stamp + "_Accuracy.jpeg")
     # summarize history for loss
     plt.plot(history.history['loss'])
     plt.plot(history.history['val_loss'])
@@ -215,7 +217,7 @@ def modelTrainer():
     plt.legend(['train', 'validate'], loc='upper left')
     figLoss = plt.gcf()
     plt.show()
-    figLoss.savefig("./checkpoints/" + Stamp + "_Loss.jpeg")
+    figLoss.savefig("./checkpoints/" + modelType + "/" + Stamp + "_Loss.jpeg")
     #Runtime in minutes
     Run_time = (End_time - Start_time) // 60
     print(Run_time)
