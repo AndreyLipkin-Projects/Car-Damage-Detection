@@ -1,3 +1,6 @@
+import os
+
+
 def Prediction (modelType,img_path) :
     from keras import Model
     from keras.engine.saving import model_from_json
@@ -20,8 +23,15 @@ def Prediction (modelType,img_path) :
 
     # load the model we saved, also, according to the results from the Two_Class model , if the result passes the
     #the threshold defined for it,
+   # C:\Users\alipkine\PycharmProjects\Test\checkpoints\Two_Classes\ResNet50_model.h5
+   # modelPath = "./checkpoints/" + modelType + "/" + "ResNet50_model.h5"
     modelPath = "./checkpoints/" + modelType + "/" + "ResNet50_model.h5"
-    model = load_model(modelPath)
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    my_file = os.path.join(THIS_FOLDER, modelPath)
+
+
+
+    model = load_model(my_file)
     img = image.load_img(img_path, target_size=(img_width, img_height))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
