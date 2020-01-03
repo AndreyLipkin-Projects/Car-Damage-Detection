@@ -15,7 +15,7 @@ class Ui_MainMenuWindow(object):
         MainMenuWindow.setObjectName("MainMenuWindow")
         MainMenuWindow.resize(332, 375)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/Logos/output-onlinepngtools (2).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("Logo.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         MainMenuWindow.setWindowIcon(icon)
         MainMenuWindow.setDocumentMode(False)
         self.centralwidget = QtWidgets.QWidget(MainMenuWindow)
@@ -61,7 +61,7 @@ class Ui_MainMenuWindow(object):
     def retranslateUi(self, MainMenuWindow):
         _translate = QtCore.QCoreApplication.translate
         MainMenuWindow.setWindowTitle(_translate("MainMenuWindow", "MainMenu"))
-        self.Logo.setText(_translate("MainMenuWindow", "<html><head/><body><p><img src=\":/newPrefix/output-onlinepngtools (2).png\"/></p></body></html>"))
+        self.Logo.setText(_translate("MainMenuWindow", "<html><head/><body><p><img src=\"Logo.png\"/></p></body></html>"))
         self.LogoName.setText(_translate("MainMenuWindow", "<html><head/><body><p><span style=\" font-size:24pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
         self.LocalizationButton.setText(_translate("MainMenuWindow", "Get Classification"))
         self.TrainButton.setText(_translate("MainMenuWindow", "Train System"))

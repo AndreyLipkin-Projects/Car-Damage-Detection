@@ -4,14 +4,16 @@ from PyQt5.uic import loadUi
 
 from ChangeClassifier_Controller import ChangeClassPage
 from Hyperparameters_Controller import HyperparametersPage
+from Settings import Ui_SettingsWindow
 from TrainingGraph_Controller import TrainGraphPage
 
 
-class SettingsPage(QMainWindow):
+class SettingsPage(QMainWindow,Ui_SettingsWindow):
 
     def __init__(self,parent=None):
         super(SettingsPage, self).__init__(parent)
-        loadUi('Settings.ui',self)
+        #loadUi('Settings.ui',self)
+        self.setupUi(self)
         self.BackButton.clicked.connect(self.closeAndReturn)
         self.HyperparametersButton.clicked.connect(self.hyper)
         self.ChangeClassButton.clicked.connect(self.changeClass)

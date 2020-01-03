@@ -9,18 +9,16 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-import Results
 
-
-class Ui_Classificationswindow(object):
-    def setupUi(self, Classificationswindow):
-        Classificationswindow.setObjectName("Classificationswindow")
-        Classificationswindow.resize(336, 396)
+class Ui_UploadImagewindow(object):
+    def setupUi(self, UploadImagewindow):
+        UploadImagewindow.setObjectName("UploadImagewindow")
+        UploadImagewindow.resize(336, 396)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("Logo.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        Classificationswindow.setWindowIcon(icon)
-        Classificationswindow.setDocumentMode(False)
-        self.centralwidget = QtWidgets.QWidget(Classificationswindow)
+        UploadImagewindow.setWindowIcon(icon)
+        UploadImagewindow.setDocumentMode(False)
+        self.centralwidget = QtWidgets.QWidget(UploadImagewindow)
         self.centralwidget.setObjectName("centralwidget")
         self.Logo = QtWidgets.QLabel(self.centralwidget)
         self.Logo.setGeometry(QtCore.QRect(70, 20, 231, 201))
@@ -49,47 +47,40 @@ class Ui_Classificationswindow(object):
         self.BackButton.setGeometry(QtCore.QRect(160, 330, 51, 21))
         self.BackButton.setObjectName("BackButton")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(60, 260, 61, 20))
+        self.label.setGeometry(QtCore.QRect(0, 260, 61, 20))
         self.label.setObjectName("label")
-        self.FilenameLabel = QtWidgets.QLabel(self.centralwidget)
-        self.FilenameLabel.setGeometry(QtCore.QRect(120, 260, 131, 21))
+        self.FilenameLabel = QtWidgets.QLineEdit(self.centralwidget)
+        self.FilenameLabel.setGeometry(QtCore.QRect(50, 260, 281, 20))
+        self.FilenameLabel.setText("")
         self.FilenameLabel.setObjectName("FilenameLabel")
-        Classificationswindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(Classificationswindow)
+        UploadImagewindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(UploadImagewindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 336, 21))
         self.menubar.setObjectName("menubar")
-        Classificationswindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(Classificationswindow)
+        UploadImagewindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(UploadImagewindow)
         self.statusbar.setObjectName("statusbar")
-        Classificationswindow.setStatusBar(self.statusbar)
+        UploadImagewindow.setStatusBar(self.statusbar)
 
-        self.DamageclassificationButton.clicked.connect(self.Resultwindow)
+        self.retranslateUi(UploadImagewindow)
+        QtCore.QMetaObject.connectSlotsByName(UploadImagewindow)
 
-        self.retranslateUi(Classificationswindow)
-        QtCore.QMetaObject.connectSlotsByName(Classificationswindow)
-
-    def retranslateUi(self, Classificationswindow):
+    def retranslateUi(self, UploadImagewindow):
         _translate = QtCore.QCoreApplication.translate
-        Classificationswindow.setWindowTitle(_translate("Classificationswindow", "Upload Image"))
-        self.Logo.setText(_translate("Classificationswindow", "<html><head/><body><p><img src=\"Logo.png\"/></p></body></html>"))
-        self.LogoName.setText(_translate("Classificationswindow", "<html><head/><body><p><span style=\" font-size:24pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
-        self.UploadButton.setText(_translate("Classificationswindow", "Upload car image"))
-        self.DamageclassificationButton.setText(_translate("Classificationswindow", "Get damage localization"))
-        self.BackButton.setText(_translate("Classificationswindow", "Back"))
-        self.label.setText(_translate("Classificationswindow", "File Name:"))
-        self.FilenameLabel.setText(_translate("Classificationswindow", "TextLabel"))
+        UploadImagewindow.setWindowTitle(_translate("UploadImagewindow", "Upload Image"))
+        self.Logo.setText(_translate("UploadImagewindow", "<html><head/><body><p><img src=\"Logo.png\"/></p></body></html>"))
+        self.LogoName.setText(_translate("UploadImagewindow", "<html><head/><body><p><span style=\" font-size:24pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
+        self.UploadButton.setText(_translate("UploadImagewindow", "Upload car image"))
+        self.DamageclassificationButton.setText(_translate("UploadImagewindow", "Get damage localization"))
+        self.BackButton.setText(_translate("UploadImagewindow", "Back"))
+        self.label.setText(_translate("UploadImagewindow", "File Name:"))
 
-    def Resultwindow(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Results.Ui_ResultsWindow()
-        self.ui.setupUi(self.window)
-        # self.hide()
-        self.window.show()
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainApplicationWindow1 = QtWidgets.QMainWindow()
-    ui = Ui_Classificationswindow()
-    ui.setupUi(MainApplicationWindow1)
-    MainApplicationWindow1.show()
+    UploadImagewindow = QtWidgets.QMainWindow()
+    ui = Ui_UploadImagewindow()
+    ui.setupUi(UploadImagewindow)
+    UploadImagewindow.show()
     sys.exit(app.exec_())

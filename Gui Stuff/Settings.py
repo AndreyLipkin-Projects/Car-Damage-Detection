@@ -63,11 +63,11 @@ class Ui_SettingsWindow(object):
         SettingsWindow.setStatusBar(self.statusbar)
 
 
-        self.ChangeClassButton.clicked.connect(self.ChangeClasswindow)
-        self.HyperparametersButton.clicked.connect(self.Hyperparameterswindow)
-        self.GraphButton.clicked.connect(self.Traingraphwindow)
+        #self.ChangeClassButton.clicked.connect(self.ChangeClasswindow)
+        #self.HyperparametersButton.clicked.connect(self.Hyperparameterswindow)
+        #self.GraphButton.clicked.connect(self.Traingraphwindow)
 
-        self.BackButton.clicked.connect(self.closeAndReturn)
+        #self.BackButton.clicked.connect(self.closeAndReturn)
 
         self.retranslateUi(SettingsWindow)
         QtCore.QMetaObject.connectSlotsByName(SettingsWindow)
@@ -81,19 +81,19 @@ class Ui_SettingsWindow(object):
         self.ChangeClassButton.setText(_translate("SettingsWindow", "Change Classifier"))
         self.GraphButton.setText(_translate("SettingsWindow", "Training graph"))
         self.BackButton.setText(_translate("SettingsWindow", "Back"))
-
+    '''
     def ChangeClasswindow(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Change_classifier.Ui_ClassifierWindow()
         self.ui.setupUi(self.window)
         #self.hide()
         self.window.show()
-
+    '''
     def closeAndReturn(self):
         self.close()
         self.parent().show()
 
-
+    '''
     def Hyperparameterswindow(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Hyperparameters.Ui_HyperparametersWindow()
@@ -107,7 +107,7 @@ class Ui_SettingsWindow(object):
         self.ui.setupUi(self.window)
         # self.hide()
         self.window.show()
-
+    '''
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

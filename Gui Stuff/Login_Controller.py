@@ -1,32 +1,39 @@
 import sys
+from getpass import getpass
 from os.path import dirname, realpath
 
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMessageBox, QApplication, QDialog, QMainWindow
+from PyQt5.QtWidgets import QMessageBox, QApplication, QDialog, QMainWindow, QLineEdit
 from PyQt5.uic import loadUi
 import Gui
+from Login import Ui_LoginWindow
 
 user_list = ["andrey"]
 pass_list = ["123"]
 
 
-class LoginPage(QMainWindow):
+class LoginPage(QMainWindow,Ui_LoginWindow):
 
     def __init__(self):
         super(LoginPage, self).__init__()
-        loadUi('Login.ui',self)
+        #loadUi('Login.ui',self)
+        self.setupUi(self)
+        self.PasswordInput.setEchoMode(QLineEdit.Password)
         self.LoginButton.clicked.connect(self.openMainMenu)
 
     def openMainMenu(self):
-        username = self.UserNameInput.toPlainText()
-        password = self.PasswordInput.toPlainText()
+        username = self.UserNameInput.text()
+
+
+        password = self.PasswordInput.text()
         try :
             if user_list.index(username) != ValueError:
                 if password == pass_list[user_list.index(username)]:
                     self.mainmenuwindow()
                 else:
-                    raise Exception(self.display_error_message("Username / password incorrect"))
+                    self.display_error_message("Username / password incorrect")
+
         except ValueError:
             self.display_error_message("no such user")
 

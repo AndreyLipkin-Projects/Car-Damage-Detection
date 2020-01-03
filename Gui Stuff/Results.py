@@ -15,7 +15,7 @@ class Ui_ResultsWindow(object):
         ResultsWindow.setObjectName("ResultsWindow")
         ResultsWindow.resize(704, 578)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/Logos/output-onlinepngtools (2).png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("Logo.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         ResultsWindow.setWindowIcon(icon)
         ResultsWindow.setDocumentMode(False)
         self.centralwidget = QtWidgets.QWidget(ResultsWindow)
@@ -49,6 +49,9 @@ class Ui_ResultsWindow(object):
         self.DamageTypeLabel = QtWidgets.QLabel(self.centralwidget)
         self.DamageTypeLabel.setGeometry(QtCore.QRect(300, 450, 151, 20))
         self.DamageTypeLabel.setObjectName("DamageTypeLabel")
+        self.FurtherClassButton = QtWidgets.QPushButton(self.centralwidget)
+        self.FurtherClassButton.setGeometry(QtCore.QRect(544, 500, 121, 23))
+        self.FurtherClassButton.setObjectName("FurtherClassButton")
         ResultsWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(ResultsWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 704, 21))
@@ -64,18 +67,21 @@ class Ui_ResultsWindow(object):
     def retranslateUi(self, ResultsWindow):
         _translate = QtCore.QCoreApplication.translate
         ResultsWindow.setWindowTitle(_translate("ResultsWindow", "Results"))
-        self.Logo.setText(_translate("ResultsWindow", "<html><head/><body><p><img src=\":/Logos/output-onlinepngtools (2).png\"/></p></body></html>"))
+        self.Logo.setText(_translate("ResultsWindow", "<html><head/><body><p><img src=\"Logo.png\"/></p></body></html>"))
         self.LogoName.setText(_translate("ResultsWindow", "<html><head/><body><p><span style=\" font-size:24pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
         self.label.setText(_translate("ResultsWindow", "Damage Locations: "))
         self.DamagCarPicLabel.setText(_translate("ResultsWindow", "TextLabel"))
         self.BackButton.setText(_translate("ResultsWindow", "Back"))
         self.DamageTypeLabel.setText(_translate("ResultsWindow", "TextLabel"))
+        self.FurtherClassButton.setText(_translate("ResultsWindow", "Next Classification step"))
+
+
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainApplicationWindow1 = QtWidgets.QMainWindow()
+    ResultsWindow = QtWidgets.QMainWindow()
     ui = Ui_ResultsWindow()
-    ui.setupUi(MainApplicationWindow1)
-    MainApplicationWindow1.show()
+    ui.setupUi(ResultsWindow)
+    ResultsWindow.show()
     sys.exit(app.exec_())

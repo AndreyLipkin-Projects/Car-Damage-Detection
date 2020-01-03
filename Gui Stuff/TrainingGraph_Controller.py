@@ -2,11 +2,15 @@ import sys
 from PyQt5.QtWidgets import QMessageBox, QApplication, QDialog, QMainWindow
 from PyQt5.uic import loadUi
 
-class TrainGraphPage(QMainWindow):
+from Training_graph import Ui_TrainGraphWindow
+
+
+class TrainGraphPage(QMainWindow,Ui_TrainGraphWindow):
 
     def __init__(self,parent=None):
         super(TrainGraphPage, self).__init__(parent)
-        loadUi('Training_graph.ui',self)
+        #loadUi('Training_graph.ui',self)
+        self.setupUi(self)
         self.BackButton.clicked.connect(self.closeAndReturn)
 
     def closeAndReturn(self):

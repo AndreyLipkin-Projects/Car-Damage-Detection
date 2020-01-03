@@ -14,10 +14,10 @@ class Ui_LoginWindow(object):
     def setupUi(self, LoginWindow):
         LoginWindow.setObjectName("LoginWindow")
         LoginWindow.resize(317, 382)
-        self.icon = QtGui.QIcon()
-        self.icon.addPixmap(QtGui.QPixmap("Logo.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
-        self.LoginWindow.setWindowIcon(icon)
-        self.LoginWindow.setDocumentMode(False)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("Logo.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        LoginWindow.setWindowIcon(icon)
+        LoginWindow.setDocumentMode(False)
         self.centralwidget = QtWidgets.QWidget(LoginWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -26,12 +26,6 @@ class Ui_LoginWindow(object):
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(50, 260, 51, 21))
         self.label_2.setObjectName("label_2")
-        self.UserNameInput = QtWidgets.QTextEdit(self.centralwidget)
-        self.UserNameInput.setGeometry(QtCore.QRect(110, 220, 121, 31))
-        self.UserNameInput.setObjectName("UserNameInput")
-        self.PasswordInput = QtWidgets.QTextEdit(self.centralwidget)
-        self.PasswordInput.setGeometry(QtCore.QRect(110, 260, 121, 31))
-        self.PasswordInput.setObjectName("PasswordInput")
         self.LoginButton = QtWidgets.QPushButton(self.centralwidget)
         self.LoginButton.setGeometry(QtCore.QRect(130, 310, 61, 21))
         self.LoginButton.setObjectName("LoginButton")
@@ -52,6 +46,12 @@ class Ui_LoginWindow(object):
         font.setItalic(True)
         self.Logotext.setFont(font)
         self.Logotext.setObjectName("Logotext")
+        self.UserNameInput = QtWidgets.QLineEdit(self.centralwidget)
+        self.UserNameInput.setGeometry(QtCore.QRect(110, 230, 113, 20))
+        self.UserNameInput.setObjectName("UserNameInput")
+        self.PasswordInput = QtWidgets.QLineEdit(self.centralwidget)
+        self.PasswordInput.setGeometry(QtCore.QRect(110, 260, 113, 20))
+        self.PasswordInput.setObjectName("PasswordInput")
         LoginWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(LoginWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 317, 21))
@@ -74,3 +74,12 @@ class Ui_LoginWindow(object):
         self.Logotext.setText(_translate("LoginWindow", "<html><head/><body><p><span style=\" font-size:22pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
 
 
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    LoginWindow = QtWidgets.QMainWindow()
+    ui = Ui_LoginWindow()
+    ui.setupUi(LoginWindow)
+    LoginWindow.show()
+    sys.exit(app.exec_())

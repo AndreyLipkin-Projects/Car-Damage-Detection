@@ -2,15 +2,17 @@ import sys
 from PyQt5.QtWidgets import QMessageBox, QApplication, QDialog, QMainWindow
 from PyQt5.uic import loadUi
 
+from MainMenu import Ui_MainMenuWindow
 from Settings_Controller import SettingsPage
 from UploadImage_Controller import UploadImagePage
 
 
-class MainMenuPage(QMainWindow):
+class MainMenuPage(QMainWindow,Ui_MainMenuWindow):
 
     def __init__(self,parent=None):
         super(MainMenuPage, self).__init__(parent)
-        loadUi('MainMenu.ui',self)
+        #loadUi('MainMenu.ui',self)
+        self.setupUi(self)
         self.BackButton.clicked.connect(self.closeAndReturn)
         self.TrainButton.clicked.connect(self.train)
         self.LocalizationButton.clicked.connect(self.damageclass)
