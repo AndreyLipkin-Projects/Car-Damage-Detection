@@ -2,6 +2,10 @@
 Car damage detection and classification using deep learning, implemented using libraries such as Keras and Tensorflow, with GUI and configuration files for admin.
 
 Welcome to the source code of our final project!
+
+# __Run Instructions__
+
+
 In this section we will explain how to setup your environment in order to be able to run the code, since it has specific requierments - as python is an open source language and every change made by the community reflects directly on the usability of your environment.
 
 We advice you to create a virtual environment, and make it's iteration as the interpreter of the project, in order to not mess up your current working environment's dependencies.
