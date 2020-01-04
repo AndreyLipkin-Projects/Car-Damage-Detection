@@ -43,8 +43,8 @@
     <widget class="QDoubleSpinBox" name="LearningRateSpinBox">
      <property name="geometry">
       <rect>
-       <x>245</x>
-       <y>27</y>
+       <x>250</x>
+       <y>30</y>
        <width>62</width>
        <height>22</height>
       </rect>
@@ -65,8 +65,8 @@
     <widget class="QDoubleSpinBox" name="L1RegularizationSpinBox">
      <property name="geometry">
       <rect>
-       <x>245</x>
-       <y>57</y>
+       <x>250</x>
+       <y>60</y>
        <width>62</width>
        <height>22</height>
       </rect>
@@ -84,8 +84,8 @@
     <widget class="QDoubleSpinBox" name="ValBatchSizeSpinBox">
      <property name="geometry">
       <rect>
-       <x>245</x>
-       <y>87</y>
+       <x>250</x>
+       <y>90</y>
        <width>62</width>
        <height>22</height>
       </rect>
@@ -103,8 +103,8 @@
     <widget class="QDoubleSpinBox" name="TrainBatchSizeSpinBox">
      <property name="geometry">
       <rect>
-       <x>245</x>
-       <y>117</y>
+       <x>250</x>
+       <y>120</y>
        <width>62</width>
        <height>22</height>
       </rect>
@@ -122,8 +122,8 @@
     <widget class="QDoubleSpinBox" name="epochsSpinBox">
      <property name="geometry">
       <rect>
-       <x>245</x>
-       <y>147</y>
+       <x>250</x>
+       <y>150</y>
        <width>62</width>
        <height>22</height>
       </rect>
@@ -164,77 +164,6 @@
       <string>Learning rate</string>
      </property>
     </widget>
-    <widget class="QSlider" name="trainingValidationSlider">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>188</y>
-       <width>160</width>
-       <height>19</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>100</number>
-     </property>
-     <property name="sliderPosition">
-      <number>80</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="trainingPercentageLineEdit">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>186</y>
-       <width>35</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>80%</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="validationPercentageLineEdit">
-     <property name="geometry">
-      <rect>
-       <x>314</x>
-       <y>186</y>
-       <width>35</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>20%</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="trainingPercentageLabel">
-     <property name="geometry">
-      <rect>
-       <x>64</x>
-       <y>188</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Training</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="validationPercentageLabel">
-     <property name="geometry">
-      <rect>
-       <x>356</x>
-       <y>188</y>
-       <width>47</width>
-       <height>13</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Validation</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="epochsLabel_2">
      <property name="geometry">
       <rect>
@@ -272,6 +201,42 @@
      </property>
      <property name="text">
       <string>L1 Regularization</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="ClassTypeCombo">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>180</y>
+       <width>91</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="currentText">
+      <string>Two_Classes</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Two_Classes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Three_Classes</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="ClassLabel">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>180</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Class Type</string>
      </property>
     </widget>
    </widget>
