@@ -50,6 +50,6 @@ We advise you use Pycharm IDE in order to view and run our source code. If you f
 
 ![Accuracy of two class model](checkpoints/Two_Classes/Two_Classes_Accuracy.jpeg)
 
-[Loss of two class model](checkpoints/Two_Classes/Two_Classes_Loss.jpeg)
+![Loss of two class model](checkpoints/Two_Classes/Two_Classes_Loss.jpeg)
 
 
