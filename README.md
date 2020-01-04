@@ -48,5 +48,5 @@ pip install --upgrade keras==2.2.4
 
 We advise you use Pycharm IDE in order to view and run our source code. If you followed the instructions so far, when opening the IDE you will have an option to choose an Existing Interpreter, where you can navigate to the location of your Virtual Environment, usually at C:\Users\"Your user name"\miniconda\envs\"Your environment name"\python.exe
 
-![GitHub Logo](checkpoints/Two_Classes/Date - 2019-12-21 Time - 15_23_46_Accuracy.jpeg)
+![Accuracy of two class model](https://github.com/lepilmen/Car-Damage_Detection/checkpoints/Two_Classes/Two_Classes_Accuracy.jpeg)
 Format: ![Two_Class model accuracy](url)
