@@ -27,6 +27,9 @@
   <property name="accessibleName">
    <string/>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/Logo/Background.png);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="mainModelGroupBox">
     <property name="geometry">
@@ -36,6 +39,16 @@
       <width>441</width>
       <height>251</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#mainModelGroupBox{
+background-color: transparent;
+background: none;
+
+background-repeat: none;
+}
+
+</string>
     </property>
     <property name="title">
      <string>Model</string>
@@ -158,6 +171,16 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#learningRateLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
      <property name="text">
       <string>Learning rate</string>
      </property>
@@ -170,6 +193,16 @@
        <width>91</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#epochsLabel_2{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
      </property>
      <property name="text">
       <string>Training Batch size</string>
@@ -184,6 +217,16 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#ValBatchLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
      <property name="text">
       <string>Validation Batch size</string>
      </property>
@@ -196,6 +239,16 @@
        <width>91</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#L1RegularizationLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
      </property>
      <property name="text">
       <string>L1 Regularization</string>
@@ -235,6 +288,16 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#epochsLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
      <property name="text">
       <string>Epochs</string>
      </property>
@@ -272,6 +335,16 @@
        <width>71</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#TrainImages{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
      </property>
      <property name="text">
       <string>Train Images</string>
@@ -311,35 +384,47 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">#ValidationImages{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
      <property name="text">
       <string>Validation Images</string>
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="trainModelButton">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>520</y>
-      <width>130</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Train</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="BackButton">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>70</x>
       <y>520</y>
       <width>75</width>
-      <height>23</height>
+      <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#BackButton{
+background-color: transparent;
+border-image: url(:/Logo/Back_up.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+#BackButton:pressed
+{
+   border-image: url(:/Logo/Back_down.png);
+}
+
+</string>
+    </property>
     <property name="text">
-     <string>Back</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="LogoName">
@@ -377,24 +462,53 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#LogoLabel{
+background-color: transparent;
+border-image: url(:/Logo/Logo.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Logo/Logo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QPushButton" name="HelpButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>520</y>
-      <width>21</width>
-      <height>23</height>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click here for help&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#HelpButton{
+background-color: transparent;
+border-image: url(:/Logo/Help_up.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+#HelpButton:pressed
+{
+   border-image: url(:/Logo/Help_down.png);
+}
+
+</string>
+    </property>
     <property name="text">
-     <string>?</string>
+     <string/>
     </property>
    </widget>
    <widget class="QComboBox" name="ClassTypeCombo">
@@ -402,7 +516,7 @@
      <rect>
       <x>230</x>
       <y>240</y>
-      <width>111</width>
+      <width>121</width>
       <height>22</height>
      </rect>
     </property>
@@ -429,6 +543,16 @@
       <height>16</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#ClassLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+    </property>
     <property name="text">
      <string>Training Classes</string>
     </property>
@@ -442,6 +566,16 @@
       <height>16</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#ModelType{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+    </property>
     <property name="text">
      <string>New model?</string>
     </property>
@@ -451,7 +585,7 @@
      <rect>
       <x>230</x>
       <y>210</y>
-      <width>111</width>
+      <width>121</width>
       <height>22</height>
      </rect>
     </property>
@@ -469,6 +603,44 @@
      </property>
     </item>
    </widget>
+   <widget class="QPushButton" name="trainModelButton">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>520</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#trainModelButton{
+background-color: transparent;
+border-image: url(:/Logo/Train_up.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+#trainModelButton:pressed
+{
+   border-image: url(:/Logo/Train_down.png);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>ClassTypeCombo</zorder>
+   <zorder>LogoLabel</zorder>
+   <zorder>BackButton</zorder>
+   <zorder>ClassLabel</zorder>
+   <zorder>ClassTypeCombo_2</zorder>
+   <zorder>HelpButton</zorder>
+   <zorder>ModelType</zorder>
+   <zorder>LogoName</zorder>
+   <zorder>mainModelGroupBox</zorder>
+   <zorder>trainModelButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -483,7 +655,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="Logos.qrc"/>
+  <include location="Gui-pngs/Logos.qrc"/>
  </resources>
  <connections/>
 </ui>

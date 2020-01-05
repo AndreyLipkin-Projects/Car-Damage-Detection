@@ -15,7 +15,7 @@ class Ui_ClassifierWindow(object):
         ClassifierWindow.setObjectName("ClassifierWindow")
         ClassifierWindow.resize(366, 362)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap('Logo.png'), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap('Gui-pngs/Logo.png'), QtGui.QIcon.Selected, QtGui.QIcon.On)
         ClassifierWindow.setWindowIcon(icon)
         ClassifierWindow.setDocumentMode(False)
         self.centralwidget = QtWidgets.QWidget(ClassifierWindow)

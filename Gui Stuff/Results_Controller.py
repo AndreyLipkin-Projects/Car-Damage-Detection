@@ -37,10 +37,10 @@ class ResultsPage(QMainWindow, Results.Ui_ResultsWindow):
         predes=str(predes).split(" ")
 
         if float(predes[0]) > 0.7:
-            self.DamageTypeLabel.setText("Vehicle Damaged")
-
+            test=predes[0]
+            self.DamageTypeLabel.setText("Vehicle Damaged: " + str(float(test)*100) + "%")
         elif float(predes[1]) > 0.7:
-            self.DamageTypeLabel.setText("Vehicle Whole")
+            self.DamageTypeLabel.setText("Vehicle Whole: " + str( predes[1]) + "%")
             self.FurtherClassButton.hide()
         else :
             self.DamageTypeLabel.setText("Unable to calculate")

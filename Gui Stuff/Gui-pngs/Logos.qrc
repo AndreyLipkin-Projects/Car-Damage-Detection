@@ -1,0 +1,34 @@
+<RCC>
+  <qresource prefix="Logo">
+    <file>Back_down.png</file>
+    <file>Back_up.png</file>
+    <file>Background.png</file>
+    <file>GetClassification_down.png</file>
+    <file>GetClassification_up.png</file>
+    <file>GetDmgClass_down.png</file>
+    <file>GetDmgClass_up.png</file>
+    <file>Help_down.png</file>
+    <file>Help_up.png</file>
+    <file>Hyperparameters_down.png</file>
+    <file>Hyperparameters_up.png</file>
+    <file>Login_Blue.png</file>
+    <file>Login_down.png</file>
+    <file>Login_up.png</file>
+    <file>Logo.ico</file>
+    <file>Logo.png</file>
+    <file>Nextstep_down.png</file>
+    <file>Nextstep_up.png</file>
+    <file>Train_down.png</file>
+    <file>Train_up.png</file>
+    <file>TrainGraph_down.png</file>
+    <file>TrainGraph_up.png</file>
+    <file>TrainSystem_down.png</file>
+    <file>TrainSystem_up.png</file>
+    <file>UploadCar_down.png</file>
+    <file>UploadCar_up.png</file>
+    <file>Background.png</file>
+    <file>Logo.png</file>
+    <file>Login_down.png</file>
+    <file>Login_up.png</file>
+  </qresource>
+</RCC>

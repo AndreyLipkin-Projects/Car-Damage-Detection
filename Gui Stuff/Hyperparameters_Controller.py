@@ -9,6 +9,7 @@ from modelTraining import modelTrainer
 
 class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
 
+
     def __init__(self, parent=None):
         super(HyperparametersPage, self).__init__(parent)
         # loadUi('Hyperparameters.ui',self)
@@ -23,13 +24,24 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
         self.Readparametrs("C:/Users/alipkine/PycharmProjects/Test/Init.ini")
 
     def trainSystem(self):
+        Train_Type = ""
 
         with open("C:/Users/alipkine/PycharmProjects/Test/Init.ini") as f:
             lines = f.readlines()
             counter = 0
             for x in lines:
+                if "New_Model=" in x:
+                    if "Yes-New model" == self.ClassTypeCombo_2.currentText():
+                        lines[counter] = ("New_Model=New" + '\n')
+                    elif "No-Continue training" == self.ClassTypeCombo_2.currentText():
+                        lines[counter] = ("New_Model=Old" + '\n')
                 if "Class_List_From_Gui=" in x:
-                    lines[counter] = ("Class_List_From_Gui=" + str(self.ClassTypeCombo.currentText()) + '\n')
+                    if "Damage, Whole" == self.ClassTypeCombo.currentText():
+                        lines[counter] = ("Class_List_From_Gui=Two_Classes" + '\n')
+                        Train_Type="Two_Classes"
+                    elif "Front, Rear, Side" == self.ClassTypeCombo.currentText():
+                        lines[counter] = ("Class_List_From_Gui=Three_Classes" + '\n')
+                        Train_Type = "Three_Classes"
                 if "Epocs_from_Gui=" in x:
                     lines[counter] = ("Epocs_from_Gui=" + str(int(self.epochsSpinBox.value())) + '\n')
                 if "learningRate_From_Gui" in x:
@@ -48,7 +60,7 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
                 output.write(str(row))
 
 
-        modelTrainer(self.ClassTypeCombo.currentText())
+        modelTrainer(Train_Type)
 
     def Readparametrs(self, path):
 
