@@ -15,6 +15,7 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
         self.setupUi(self)
         self.BackButton.clicked.connect(self.closeAndReturn)
         self.trainModelButton.clicked.connect(self.trainSystem)
+        self.HelpButton.clicked.connect(self.show_help_info)
         Path = ".\PycharmProjects\Test\Init.ini"
         THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
         my_file = os.path.join(THIS_FOLDER, Path)
@@ -78,6 +79,15 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
         percentage_text = str(percentage) + "%"
         self.validationPercentageLineEdit.setText(percentage_text)
 
+    def show_help_info(self):
+        self.display_information_message("In this window you setup the needed values the system needs in order for you to be able to train a new or an existing model")
+
+    def display_information_message(self, message):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText(message)
+        msg.setWindowTitle("Information")
+        msg.exec_()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
