@@ -1,8 +1,8 @@
 <RCC>
   <qresource prefix="Logo">
     <file>Back_down.png</file>
+    <file>Background.jpg</file>
     <file>Back_up.png</file>
-    <file>Background.png</file>
     <file>GetClassification_down.png</file>
     <file>GetClassification_up.png</file>
     <file>GetDmgClass_down.png</file>
@@ -26,7 +26,6 @@
     <file>TrainSystem_up.png</file>
     <file>UploadCar_down.png</file>
     <file>UploadCar_up.png</file>
-    <file>Background.png</file>
     <file>Logo.png</file>
     <file>Login_down.png</file>
     <file>Login_up.png</file>

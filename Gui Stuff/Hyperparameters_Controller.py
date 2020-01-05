@@ -77,6 +77,10 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
                     self.TrainBatchSizeSpinBox.setValue(int(x[25:]))
                 if "Val_BatchSize_From_Gui" in x:
                     self.ValBatchSizeSpinBox.setValue(int(x[23:]))
+                if "numTrain_From_Gui" in x:
+                    self.TrainImagesSpin.setValue(int(x[18:]))
+                if "numVal_From_Gui" in x:
+                    self.ValImagesSpin.setValue(int(x[16:]))
             f.close()
 
     def closeAndReturn(self):
