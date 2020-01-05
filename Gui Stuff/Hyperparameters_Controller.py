@@ -92,14 +92,15 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
         self.validationPercentageLineEdit.setText(percentage_text)
 
     def show_help_info(self):
-        self.display_information_message("In this window you setup the needed values the system needs in order for you to be able to train a new or an existing model")
+        QMessageBox.about(self,"Information", "In this window you setup the needed values the system needs in order for you to be able to train a new or an existing model")
+      #  self.display_information_message("In this window you setup the needed values the system needs in order for you to be able to train a new or an existing model")
 
     def display_information_message(self, message):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
         msg.setText(message)
         msg.setWindowTitle("Information")
-        msg.exec_()
+        msg.exec()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
