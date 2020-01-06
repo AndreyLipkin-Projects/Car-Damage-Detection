@@ -22,7 +22,7 @@ class Ui_UploadImagewindow(object):
         self.centralwidget = QtWidgets.QWidget(UploadImagewindow)
         self.centralwidget.setObjectName("centralwidget")
         self.Logo = QtWidgets.QLabel(self.centralwidget)
-        self.Logo.setGeometry(QtCore.QRect(60, 20, 231, 201))
+        self.Logo.setGeometry(QtCore.QRect(50, 40, 231, 201))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -39,14 +39,6 @@ class Ui_UploadImagewindow(object):
 "")
         self.Logo.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Logo.setObjectName("Logo")
-        self.LogoName = QtWidgets.QLabel(self.centralwidget)
-        self.LogoName.setGeometry(QtCore.QRect(20, 20, 311, 41))
-        font = QtGui.QFont()
-        font.setFamily("Brush Script MT")
-        font.setPointSize(28)
-        font.setItalic(True)
-        self.LogoName.setFont(font)
-        self.LogoName.setObjectName("LogoName")
         self.UploadButton = QtWidgets.QPushButton(self.centralwidget)
         self.UploadButton.setGeometry(QtCore.QRect(100, 220, 151, 31))
         self.UploadButton.setStyleSheet("#UploadButton{\n"
@@ -58,7 +50,7 @@ class Ui_UploadImagewindow(object):
 "}\n"
 "#UploadButton:pressed\n"
 "{\n"
-"   border-image: url(Gui-pngs/UploadCarn_down.png);\n"
+"   border-image: url(Gui-pngs/UploadCar_down.png);\n"
 "}\n"
 "\n"
 "")
@@ -75,7 +67,7 @@ class Ui_UploadImagewindow(object):
 "}\n"
 "#DamageclassificationButton:pressed\n"
 "{\n"
-"   border-image: url(Gui-pngs/GetDmgClassn_down.png);\n"
+"   border-image: url(Gui-pngs/GetDmgClass_down.png);\n"
 "}\n"
 "\n"
 "")
@@ -111,6 +103,53 @@ class Ui_UploadImagewindow(object):
         self.FilenameLabel.setGeometry(QtCore.QRect(50, 260, 281, 20))
         self.FilenameLabel.setText("")
         self.FilenameLabel.setObjectName("FilenameLabel")
+        self.Logotext = QtWidgets.QLabel(self.centralwidget)
+        self.Logotext.setGeometry(QtCore.QRect(90, 0, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Brush Script MT")
+        font.setPointSize(28)
+        font.setItalic(True)
+        self.Logotext.setFont(font)
+        self.Logotext.setStyleSheet("#Logotext{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Logo1.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}")
+        self.Logotext.setObjectName("Logotext")
+        self.Logotext_2 = QtWidgets.QLabel(self.centralwidget)
+        self.Logotext_2.setGeometry(QtCore.QRect(70, 30, 191, 51))
+        font = QtGui.QFont()
+        font.setFamily("Brush Script MT")
+        font.setPointSize(28)
+        font.setItalic(True)
+        self.Logotext_2.setFont(font)
+        self.Logotext_2.setStyleSheet("#Logotext_2{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Logo2.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}")
+        self.Logotext_2.setObjectName("Logotext_2")
+        self.HelpButton = QtWidgets.QPushButton(self.centralwidget)
+        self.HelpButton.setGeometry(QtCore.QRect(0, 330, 31, 31))
+        self.HelpButton.setStyleSheet("#HelpButton{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Help_up.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}\n"
+"#HelpButton:pressed\n"
+"{\n"
+"   border-image: url(Gui-pngs/Help_down.png);\n"
+"}\n"
+"\n"
+"")
+        self.HelpButton.setText("")
+        self.HelpButton.setObjectName("HelpButton")
         UploadImagewindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(UploadImagewindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 336, 21))
@@ -127,8 +166,10 @@ class Ui_UploadImagewindow(object):
         _translate = QtCore.QCoreApplication.translate
         UploadImagewindow.setWindowTitle(_translate("UploadImagewindow", "Upload Image"))
         self.Logo.setText(_translate("UploadImagewindow", "<html><head/><body><p><br/></p></body></html>"))
-        self.LogoName.setText(_translate("UploadImagewindow", "<html><head/><body><p><span style=\" font-size:24pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
         self.label.setText(_translate("UploadImagewindow", "File Name:"))
+        self.Logotext.setText(_translate("UploadImagewindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.Logotext_2.setText(_translate("UploadImagewindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.HelpButton.setToolTip(_translate("UploadImagewindow", "<html><head/><body><p>Click here for help</p></body></html>"))
 
 
 

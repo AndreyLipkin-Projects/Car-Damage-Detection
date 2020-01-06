@@ -40,6 +40,12 @@
       <height>251</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">#mainModelGroupBox{
 background-color: transparent;
@@ -165,11 +171,18 @@ background-repeat: none;
     <widget class="QLabel" name="learningRateLabel">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>60</y>
-       <width>71</width>
+       <width>111</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">#learningRateLabel{
@@ -188,11 +201,18 @@ background-repeat: none;
     <widget class="QLabel" name="epochsLabel_2">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>180</y>
        <width>91</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">#epochsLabel_2{
@@ -211,11 +231,18 @@ background-repeat: none;
     <widget class="QLabel" name="ValBatchLabel">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>210</y>
        <width>101</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">#ValBatchLabel{
@@ -234,11 +261,18 @@ background-repeat: none;
     <widget class="QLabel" name="L1RegularizationLabel">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>90</y>
-       <width>91</width>
+       <width>121</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">#L1RegularizationLabel{
@@ -282,11 +316,18 @@ background-repeat: none;
     <widget class="QLabel" name="epochsLabel">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>30</y>
        <width>71</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">#epochsLabel{
@@ -330,11 +371,18 @@ background-repeat: none;
     <widget class="QLabel" name="TrainImages">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>120</y>
-       <width>71</width>
+       <width>101</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">#TrainImages{
@@ -378,11 +426,18 @@ background-repeat: none;
     <widget class="QLabel" name="ValidationImages">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>150</y>
-       <width>91</width>
+       <width>131</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">#ValidationImages{
@@ -427,31 +482,11 @@ background-repeat: none;
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="LogoName">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>401</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Brush Script MT</family>
-      <pointsize>28</pointsize>
-      <italic>true</italic>
-     </font>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; color:#00009e;&quot;&gt;Anti Fraud Damage Detector&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="LogoLabel">
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>0</y>
+      <y>40</y>
       <width>221</width>
       <height>201</height>
      </rect>
@@ -537,11 +572,18 @@ background-repeat: none;
    <widget class="QLabel" name="ClassLabel">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>130</x>
       <y>240</y>
-      <width>71</width>
+      <width>111</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">#ClassLabel{
@@ -560,11 +602,18 @@ background-repeat: none;
    <widget class="QLabel" name="ModelType">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>130</x>
       <y>210</y>
-      <width>71</width>
+      <width>91</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">#ModelType{
@@ -631,6 +680,64 @@ background-repeat: none;
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="Logotext">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>0</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Brush Script MT</family>
+      <pointsize>28</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#Logotext{
+background-color: transparent;
+border-image: url(:/Logo/Logo1.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Logotext_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Brush Script MT</family>
+      <pointsize>28</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#Logotext_2{
+background-color: transparent;
+border-image: url(:/Logo/Logo2.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
    <zorder>ClassTypeCombo</zorder>
    <zorder>LogoLabel</zorder>
    <zorder>BackButton</zorder>
@@ -638,9 +745,10 @@ background-repeat: none;
    <zorder>ClassTypeCombo_2</zorder>
    <zorder>HelpButton</zorder>
    <zorder>ModelType</zorder>
-   <zorder>LogoName</zorder>
    <zorder>mainModelGroupBox</zorder>
    <zorder>trainModelButton</zorder>
+   <zorder>Logotext</zorder>
+   <zorder>Logotext_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -648,7 +756,7 @@ background-repeat: none;
      <x>0</x>
      <y>0</y>
      <width>464</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

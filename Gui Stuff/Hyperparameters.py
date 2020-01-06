@@ -25,6 +25,10 @@ class Ui_HyperparametersPage(object):
         self.centralwidget.setObjectName("centralwidget")
         self.mainModelGroupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.mainModelGroupBox.setGeometry(QtCore.QRect(10, 260, 441, 251))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.mainModelGroupBox.setFont(font)
         self.mainModelGroupBox.setStyleSheet("#mainModelGroupBox{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -40,7 +44,7 @@ class Ui_HyperparametersPage(object):
         self.LearningRateSpinBox.setToolTip("")
         self.LearningRateSpinBox.setDecimals(4)
         self.LearningRateSpinBox.setMinimum(0.0001)
-        self.LearningRateSpinBox.setMaximum(0.01)
+        self.LearningRateSpinBox.setMaximum(9999.0)
         self.LearningRateSpinBox.setSingleStep(0.0001)
         self.LearningRateSpinBox.setProperty("value", 0.0001)
         self.LearningRateSpinBox.setObjectName("LearningRateSpinBox")
@@ -48,9 +52,9 @@ class Ui_HyperparametersPage(object):
         self.L1RegularizationSpinBox.setGeometry(QtCore.QRect(250, 90, 62, 22))
         self.L1RegularizationSpinBox.setToolTip("")
         self.L1RegularizationSpinBox.setDecimals(2)
-        self.L1RegularizationSpinBox.setMinimum(0.0001)
-        self.L1RegularizationSpinBox.setMaximum(0.01)
-        self.L1RegularizationSpinBox.setSingleStep(0.0001)
+        self.L1RegularizationSpinBox.setMinimum(1.0)
+        self.L1RegularizationSpinBox.setMaximum(9999.0)
+        self.L1RegularizationSpinBox.setSingleStep(0.01)
         self.L1RegularizationSpinBox.setProperty("value", 1.0)
         self.L1RegularizationSpinBox.setObjectName("L1RegularizationSpinBox")
         self.ValBatchSizeSpinBox = QtWidgets.QDoubleSpinBox(self.mainModelGroupBox)
@@ -70,7 +74,12 @@ class Ui_HyperparametersPage(object):
         self.TrainBatchSizeSpinBox.setProperty("value", 1.0)
         self.TrainBatchSizeSpinBox.setObjectName("TrainBatchSizeSpinBox")
         self.learningRateLabel = QtWidgets.QLabel(self.mainModelGroupBox)
-        self.learningRateLabel.setGeometry(QtCore.QRect(140, 60, 71, 16))
+        self.learningRateLabel.setGeometry(QtCore.QRect(120, 60, 111, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.learningRateLabel.setFont(font)
         self.learningRateLabel.setStyleSheet("#learningRateLabel{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -81,7 +90,12 @@ class Ui_HyperparametersPage(object):
 "")
         self.learningRateLabel.setObjectName("learningRateLabel")
         self.epochsLabel_2 = QtWidgets.QLabel(self.mainModelGroupBox)
-        self.epochsLabel_2.setGeometry(QtCore.QRect(140, 180, 91, 16))
+        self.epochsLabel_2.setGeometry(QtCore.QRect(120, 180, 91, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.epochsLabel_2.setFont(font)
         self.epochsLabel_2.setStyleSheet("#epochsLabel_2{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -92,7 +106,12 @@ class Ui_HyperparametersPage(object):
 "")
         self.epochsLabel_2.setObjectName("epochsLabel_2")
         self.ValBatchLabel = QtWidgets.QLabel(self.mainModelGroupBox)
-        self.ValBatchLabel.setGeometry(QtCore.QRect(140, 210, 101, 16))
+        self.ValBatchLabel.setGeometry(QtCore.QRect(120, 210, 101, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ValBatchLabel.setFont(font)
         self.ValBatchLabel.setStyleSheet("#ValBatchLabel{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -103,7 +122,12 @@ class Ui_HyperparametersPage(object):
 "")
         self.ValBatchLabel.setObjectName("ValBatchLabel")
         self.L1RegularizationLabel = QtWidgets.QLabel(self.mainModelGroupBox)
-        self.L1RegularizationLabel.setGeometry(QtCore.QRect(140, 90, 91, 16))
+        self.L1RegularizationLabel.setGeometry(QtCore.QRect(120, 90, 121, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.L1RegularizationLabel.setFont(font)
         self.L1RegularizationLabel.setStyleSheet("#L1RegularizationLabel{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -118,11 +142,16 @@ class Ui_HyperparametersPage(object):
         self.epochsSpinBox.setToolTip("")
         self.epochsSpinBox.setDecimals(0)
         self.epochsSpinBox.setMinimum(1.0)
-        self.epochsSpinBox.setMaximum(50.0)
+        self.epochsSpinBox.setMaximum(9999.0)
         self.epochsSpinBox.setProperty("value", 12.0)
         self.epochsSpinBox.setObjectName("epochsSpinBox")
         self.epochsLabel = QtWidgets.QLabel(self.mainModelGroupBox)
-        self.epochsLabel.setGeometry(QtCore.QRect(140, 30, 71, 16))
+        self.epochsLabel.setGeometry(QtCore.QRect(120, 30, 71, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.epochsLabel.setFont(font)
         self.epochsLabel.setStyleSheet("#epochsLabel{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -141,7 +170,12 @@ class Ui_HyperparametersPage(object):
         self.TrainImagesSpin.setProperty("value", 12.0)
         self.TrainImagesSpin.setObjectName("TrainImagesSpin")
         self.TrainImages = QtWidgets.QLabel(self.mainModelGroupBox)
-        self.TrainImages.setGeometry(QtCore.QRect(140, 120, 71, 16))
+        self.TrainImages.setGeometry(QtCore.QRect(120, 120, 101, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.TrainImages.setFont(font)
         self.TrainImages.setStyleSheet("#TrainImages{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -160,7 +194,12 @@ class Ui_HyperparametersPage(object):
         self.ValImagesSpin.setProperty("value", 12.0)
         self.ValImagesSpin.setObjectName("ValImagesSpin")
         self.ValidationImages = QtWidgets.QLabel(self.mainModelGroupBox)
-        self.ValidationImages.setGeometry(QtCore.QRect(140, 150, 91, 16))
+        self.ValidationImages.setGeometry(QtCore.QRect(120, 150, 131, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ValidationImages.setFont(font)
         self.ValidationImages.setStyleSheet("#ValidationImages{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -187,16 +226,8 @@ class Ui_HyperparametersPage(object):
 "")
         self.BackButton.setText("")
         self.BackButton.setObjectName("BackButton")
-        self.LogoName = QtWidgets.QLabel(self.centralwidget)
-        self.LogoName.setGeometry(QtCore.QRect(40, 10, 401, 41))
-        font = QtGui.QFont()
-        font.setFamily("Brush Script MT")
-        font.setPointSize(28)
-        font.setItalic(True)
-        self.LogoName.setFont(font)
-        self.LogoName.setObjectName("LogoName")
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
-        self.LogoLabel.setGeometry(QtCore.QRect(120, 0, 221, 201))
+        self.LogoLabel.setGeometry(QtCore.QRect(120, 40, 221, 201))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -236,7 +267,12 @@ class Ui_HyperparametersPage(object):
         self.ClassTypeCombo.addItem("")
         self.ClassTypeCombo.addItem("")
         self.ClassLabel = QtWidgets.QLabel(self.centralwidget)
-        self.ClassLabel.setGeometry(QtCore.QRect(150, 240, 71, 16))
+        self.ClassLabel.setGeometry(QtCore.QRect(130, 240, 111, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ClassLabel.setFont(font)
         self.ClassLabel.setStyleSheet("#ClassLabel{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -247,7 +283,12 @@ class Ui_HyperparametersPage(object):
 "")
         self.ClassLabel.setObjectName("ClassLabel")
         self.ModelType = QtWidgets.QLabel(self.centralwidget)
-        self.ModelType.setGeometry(QtCore.QRect(150, 210, 71, 16))
+        self.ModelType.setGeometry(QtCore.QRect(130, 210, 91, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ModelType.setFont(font)
         self.ModelType.setStyleSheet("#ModelType{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -279,6 +320,36 @@ class Ui_HyperparametersPage(object):
 "")
         self.trainModelButton.setText("")
         self.trainModelButton.setObjectName("trainModelButton")
+        self.Logotext = QtWidgets.QLabel(self.centralwidget)
+        self.Logotext.setGeometry(QtCore.QRect(160, 0, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Brush Script MT")
+        font.setPointSize(28)
+        font.setItalic(True)
+        self.Logotext.setFont(font)
+        self.Logotext.setStyleSheet("#Logotext{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Logo1.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}")
+        self.Logotext.setObjectName("Logotext")
+        self.Logotext_2 = QtWidgets.QLabel(self.centralwidget)
+        self.Logotext_2.setGeometry(QtCore.QRect(140, 30, 191, 51))
+        font = QtGui.QFont()
+        font.setFamily("Brush Script MT")
+        font.setPointSize(28)
+        font.setItalic(True)
+        self.Logotext_2.setFont(font)
+        self.Logotext_2.setStyleSheet("#Logotext_2{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Logo2.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}")
+        self.Logotext_2.setObjectName("Logotext_2")
         self.ClassTypeCombo.raise_()
         self.LogoLabel.raise_()
         self.BackButton.raise_()
@@ -286,12 +357,13 @@ class Ui_HyperparametersPage(object):
         self.ClassTypeCombo_2.raise_()
         self.HelpButton.raise_()
         self.ModelType.raise_()
-        self.LogoName.raise_()
         self.mainModelGroupBox.raise_()
         self.trainModelButton.raise_()
+        self.Logotext.raise_()
+        self.Logotext_2.raise_()
         HyperparametersPage.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(HyperparametersPage)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 464, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 464, 21))
         self.menubar.setObjectName("menubar")
         HyperparametersPage.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(HyperparametersPage)
@@ -310,9 +382,8 @@ class Ui_HyperparametersPage(object):
         self.ValBatchLabel.setText(_translate("HyperparametersPage", "Validation Batch size"))
         self.L1RegularizationLabel.setText(_translate("HyperparametersPage", "L1 Regularization"))
         self.epochsLabel.setText(_translate("HyperparametersPage", "Epochs"))
-        self.TrainImages.setText(_translate("HyperparametersPage", "#Train Images"))
-        self.ValidationImages.setText(_translate("HyperparametersPage", "#Validation Images"))
-        self.LogoName.setText(_translate("HyperparametersPage", "<html><head/><body><p><span style=\" font-size:24pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
+        self.TrainImages.setText(_translate("HyperparametersPage", "Train Images"))
+        self.ValidationImages.setText(_translate("HyperparametersPage", "Validation Images"))
         self.LogoLabel.setText(_translate("HyperparametersPage", "<html><head/><body><p><br/></p></body></html>"))
         self.HelpButton.setToolTip(_translate("HyperparametersPage", "<html><head/><body><p>Click here for help</p></body></html>"))
         self.ClassTypeCombo.setCurrentText(_translate("HyperparametersPage", "Damage, Whole"))
@@ -323,6 +394,8 @@ class Ui_HyperparametersPage(object):
         self.ClassTypeCombo_2.setCurrentText(_translate("HyperparametersPage", "Yes-New model"))
         self.ClassTypeCombo_2.setItemText(0, _translate("HyperparametersPage", "Yes-New model"))
         self.ClassTypeCombo_2.setItemText(1, _translate("HyperparametersPage", "No-Continue training"))
+        self.Logotext.setText(_translate("HyperparametersPage", "<html><head/><body><p><br/></p></body></html>"))
+        self.Logotext_2.setText(_translate("HyperparametersPage", "<html><head/><body><p><br/></p></body></html>"))
 
 
 

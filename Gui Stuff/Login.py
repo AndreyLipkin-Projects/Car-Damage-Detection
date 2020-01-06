@@ -62,7 +62,7 @@ class Ui_LoginWindow(object):
         self.LoginButton.setText("")
         self.LoginButton.setObjectName("LoginButton")
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
-        self.LogoLabel.setGeometry(QtCore.QRect(60, 10, 211, 211))
+        self.LogoLabel.setGeometry(QtCore.QRect(50, 40, 211, 211))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -80,12 +80,19 @@ class Ui_LoginWindow(object):
         self.LogoLabel.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.LogoLabel.setObjectName("LogoLabel")
         self.Logotext = QtWidgets.QLabel(self.centralwidget)
-        self.Logotext.setGeometry(QtCore.QRect(20, 20, 301, 41))
+        self.Logotext.setGeometry(QtCore.QRect(90, 0, 151, 31))
         font = QtGui.QFont()
         font.setFamily("Brush Script MT")
         font.setPointSize(28)
         font.setItalic(True)
         self.Logotext.setFont(font)
+        self.Logotext.setStyleSheet("#Logotext{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Logo1.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}")
         self.Logotext.setObjectName("Logotext")
         self.UserNameInput = QtWidgets.QLineEdit(self.centralwidget)
         self.UserNameInput.setGeometry(QtCore.QRect(110, 230, 113, 20))
@@ -97,12 +104,28 @@ class Ui_LoginWindow(object):
         self.PasswordInput.setGeometry(QtCore.QRect(110, 260, 113, 20))
         self.PasswordInput.setEchoMode(QtWidgets.QLineEdit.Password)
         self.PasswordInput.setObjectName("PasswordInput")
+        self.Logotext_2 = QtWidgets.QLabel(self.centralwidget)
+        self.Logotext_2.setGeometry(QtCore.QRect(70, 30, 191, 51))
+        font = QtGui.QFont()
+        font.setFamily("Brush Script MT")
+        font.setPointSize(28)
+        font.setItalic(True)
+        self.Logotext_2.setFont(font)
+        self.Logotext_2.setStyleSheet("#Logotext_2{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Logo2.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}")
+        self.Logotext_2.setObjectName("Logotext_2")
+        self.LogoLabel.raise_()
         self.label.raise_()
         self.label_2.raise_()
         self.LoginButton.raise_()
         self.UserNameInput.raise_()
         self.PasswordInput.raise_()
-        self.LogoLabel.raise_()
+        self.Logotext_2.raise_()
         self.Logotext.raise_()
         LoginWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(LoginWindow)
@@ -122,7 +145,8 @@ class Ui_LoginWindow(object):
         self.label.setText(_translate("LoginWindow", "UseName:"))
         self.label_2.setText(_translate("LoginWindow", "Password:"))
         self.LogoLabel.setText(_translate("LoginWindow", "<html><head/><body><p><br/></p></body></html>"))
-        self.Logotext.setText(_translate("LoginWindow", "<html><head/><body><p><span style=\" font-size:22pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
+        self.Logotext.setText(_translate("LoginWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.Logotext_2.setText(_translate("LoginWindow", "<html><head/><body><p><br/></p></body></html>"))
 
 
 

@@ -1,7 +1,9 @@
 <RCC>
   <qresource prefix="Logo">
+    <file>Logo1.png</file>
+    <file>Logo2.png</file>
     <file>Back_down.png</file>
-    <file>Background.jpg</file>
+    <file>Background.png</file>
     <file>Back_up.png</file>
     <file>GetClassification_down.png</file>
     <file>GetClassification_up.png</file>

@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainMenuWindow(object):
     def setupUi(self, MainMenuWindow):
         MainMenuWindow.setObjectName("MainMenuWindow")
-        MainMenuWindow.resize(332, 375)
+        MainMenuWindow.resize(332, 382)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("Gui-pngs/Logo.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         MainMenuWindow.setWindowIcon(icon)
@@ -22,7 +22,7 @@ class Ui_MainMenuWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainMenuWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.Logo = QtWidgets.QLabel(self.centralwidget)
-        self.Logo.setGeometry(QtCore.QRect(50, 20, 231, 201))
+        self.Logo.setGeometry(QtCore.QRect(40, 40, 231, 201))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -39,14 +39,6 @@ class Ui_MainMenuWindow(object):
 "")
         self.Logo.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Logo.setObjectName("Logo")
-        self.LogoName = QtWidgets.QLabel(self.centralwidget)
-        self.LogoName.setGeometry(QtCore.QRect(10, 20, 311, 41))
-        font = QtGui.QFont()
-        font.setFamily("Brush Script MT")
-        font.setPointSize(28)
-        font.setItalic(True)
-        self.LogoName.setFont(font)
-        self.LogoName.setObjectName("LogoName")
         self.LocalizationButton = QtWidgets.QPushButton(self.centralwidget)
         self.LocalizationButton.setGeometry(QtCore.QRect(60, 210, 201, 31))
         self.LocalizationButton.setStyleSheet("#LocalizationButton{\n"
@@ -98,6 +90,53 @@ class Ui_MainMenuWindow(object):
 "")
         self.BackButton.setText("")
         self.BackButton.setObjectName("BackButton")
+        self.Logotext = QtWidgets.QLabel(self.centralwidget)
+        self.Logotext.setGeometry(QtCore.QRect(90, 0, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Brush Script MT")
+        font.setPointSize(28)
+        font.setItalic(True)
+        self.Logotext.setFont(font)
+        self.Logotext.setStyleSheet("#Logotext{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Logo1.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}")
+        self.Logotext.setObjectName("Logotext")
+        self.Logotext_2 = QtWidgets.QLabel(self.centralwidget)
+        self.Logotext_2.setGeometry(QtCore.QRect(70, 30, 191, 51))
+        font = QtGui.QFont()
+        font.setFamily("Brush Script MT")
+        font.setPointSize(28)
+        font.setItalic(True)
+        self.Logotext_2.setFont(font)
+        self.Logotext_2.setStyleSheet("#Logotext_2{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Logo2.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}")
+        self.Logotext_2.setObjectName("Logotext_2")
+        self.HelpButton = QtWidgets.QPushButton(self.centralwidget)
+        self.HelpButton.setGeometry(QtCore.QRect(0, 310, 31, 31))
+        self.HelpButton.setStyleSheet("#HelpButton{\n"
+"background-color: transparent;\n"
+"border-image: url(Gui-pngs/Help_up.png);\n"
+"background: none;\n"
+"border: none;\n"
+"background-repeat: none;\n"
+"}\n"
+"#HelpButton:pressed\n"
+"{\n"
+"   border-image: url(Gui-pngs/Help_down.png);\n"
+"}\n"
+"\n"
+"")
+        self.HelpButton.setText("")
+        self.HelpButton.setObjectName("HelpButton")
         MainMenuWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainMenuWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 332, 21))
@@ -114,7 +153,9 @@ class Ui_MainMenuWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainMenuWindow.setWindowTitle(_translate("MainMenuWindow", "MainMenu"))
         self.Logo.setText(_translate("MainMenuWindow", "<html><head/><body><p><br/></p></body></html>"))
-        self.LogoName.setText(_translate("MainMenuWindow", "<html><head/><body><p><span style=\" font-size:24pt; color:#00009e;\">Anti Fraud Damage Detector</span></p></body></html>"))
+        self.Logotext.setText(_translate("MainMenuWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.Logotext_2.setText(_translate("MainMenuWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.HelpButton.setToolTip(_translate("MainMenuWindow", "<html><head/><body><p>Click here for help</p></body></html>"))
 
 
 if __name__ == "__main__":
