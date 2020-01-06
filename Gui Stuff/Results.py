@@ -30,7 +30,7 @@ class Ui_ResultsWindow(object):
         self.Logo.setSizePolicy(sizePolicy)
         self.Logo.setStyleSheet("#Logo{\n"
 "background-color: transparent;\n"
-"border-image: url(:/Logo/Logo.png);\n"
+"border-image: url(Gui-pngs/Logo.png);\n"
 "background: none;\n"
 "border: none;\n"
 "background-repeat: none;\n"
@@ -39,8 +39,31 @@ class Ui_ResultsWindow(object):
 "")
         self.Logo.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Logo.setObjectName("Logo")
+        self.BackButton = QtWidgets.QPushButton(self.centralwidget)
+        self.BackButton.setGeometry(QtCore.QRect(205, 436, 61, 31))
+        self.BackButton.setStyleSheet("#BackButton{\n"
+                                      "background-color: transparent;\n"
+                                      "border-image: url(Gui-pngs/Back_up.png);\n"
+                                      "background: none;\n"
+                                      "border: none;\n"
+                                      "background-repeat: none;\n"
+                                      "}\n"
+                                      "#BackButton:pressed\n"
+                                      "{\n"
+                                      "   border-image: url(Gui-pngs/Back_down.png);\n"
+                                      "}\n"
+                                      "\n"
+                                      "")
+        self.BackButton.setText("")
+        self.BackButton.setObjectName("BackButton")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(40, 420, 141, 21))
+        self.label.setGeometry(QtCore.QRect(0, 400, 161, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.label.setFont(font)
         self.label.setStyleSheet("#label{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -50,9 +73,9 @@ class Ui_ResultsWindow(object):
 "\n"
 "")
         self.label.setObjectName("label")
-        self.label.setFont(QtGui.QFont("MS Shell Dlg 2",12,QtGui.QFont.Bold))
+        self.label.hide()
         self.DamagCarPicLabel = QtWidgets.QLabel(self.centralwidget)
-        self.DamagCarPicLabel.setGeometry(QtCore.QRect(90, 210, 331, 191))
+        self.DamagCarPicLabel.setGeometry(QtCore.QRect(90, 210, 331, 181))
         self.DamagCarPicLabel.setStyleSheet("#DamagCarPicLabel{\n"
 "background-color: transparent;\n"
 "background: none;\n"
@@ -80,18 +103,6 @@ class Ui_ResultsWindow(object):
 "")
         self.BackButton.setText("")
         self.BackButton.setObjectName("BackButton")
-        self.DamageTypeLabel = QtWidgets.QLabel(self.centralwidget)
-        self.DamageTypeLabel.setGeometry(QtCore.QRect(190, 420, 251, 20))
-        self.DamageTypeLabel.setStyleSheet("#DamageTypeLabel{\n"
-"background-color: transparent;\n"
-"background: none;\n"
-"border: none;\n"
-"background-repeat: none;\n"
-"}\n"
-"\n"
-"")
-        self.DamageTypeLabel.setObjectName("DamageTypeLabel")
-        self.DamageTypeLabel.setFont(QtGui.QFont("MS Shell Dlg 2", 12, QtGui.QFont.Bold))
         self.FurtherClassButton = QtWidgets.QPushButton(self.centralwidget)
         self.FurtherClassButton.setGeometry(QtCore.QRect(320, 490, 171, 41))
         self.FurtherClassButton.setStyleSheet("#FurtherClassButton{\n"
@@ -156,6 +167,17 @@ class Ui_ResultsWindow(object):
 "")
         self.HelpButton.setText("")
         self.HelpButton.setObjectName("HelpButton")
+        self.DamageText = QtWidgets.QTextEdit(self.centralwidget)
+        self.DamageText.setGeometry(QtCore.QRect(150, 400, 211, 81))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.DamageText.setFont(font)
+        self.DamageText.setStyleSheet("\n"
+"")
+        self.DamageText.setObjectName("DamageText")
+        self.DamageText.setAlignment(QtCore.Qt.AlignCenter)
         ResultsWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(ResultsWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 507, 21))
@@ -173,10 +195,14 @@ class Ui_ResultsWindow(object):
         ResultsWindow.setWindowTitle(_translate("ResultsWindow", "Results"))
         self.Logo.setText(_translate("ResultsWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.label.setText(_translate("ResultsWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Damage Locations: </span></p></body></html>"))
-        self.DamageTypeLabel.setText(_translate("ResultsWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">PlaceHolder</span></p></body></html>"))
         self.Logotext.setText(_translate("ResultsWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.Logotext_2.setText(_translate("ResultsWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.HelpButton.setToolTip(_translate("ResultsWindow", "<html><head/><body><p>Click here for help</p></body></html>"))
+        self.DamageText.setHtml(_translate("ResultsWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">PlaceHolder</p></body></html>"))
 
 
 
