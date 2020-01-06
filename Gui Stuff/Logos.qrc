@@ -1,5 +1,21 @@
 <RCC>
   <qresource prefix="Logo">
+    <file>Gui-pngs/button_back.png</file>
+    <file>Gui-pngs/button_classification-visualization.png</file>
+    <file>Gui-pngs/button_get-damage-localization (1).png</file>
+    <file>Gui-pngs/button_get-damage-localization.png</file>
+    <file>Gui-pngs/button_training-graph.png</file>
+    <file>Gui-pngs/button_upload-car-image.png</file>
+    <file>Gui-pngs/button_view-images (1).png</file>
+    <file>Gui-pngs/button_view-images.png</file>
+    <file>Gui-pngs/button_view-results.png</file>
+    <file>Gui-pngs/button_your-text-here.png</file>
+    <file>Gui-pngs/login-button-png-login-button-png-image-18028-872.png</file>
+    <file>Gui-pngs/output-onlinepngtools (1).png</file>
+    <file>Gui-pngs/output-onlinepngtools (2).png</file>
+    <file>Gui-pngs/output-onlinepngtools (3).png</file>
+    <file>Gui-pngs/output-onlinepngtools (4).png</file>
+    <file>Gui-pngs/start.png</file>
     <file>Logo.png</file>
   </qresource>
 </RCC>

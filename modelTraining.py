@@ -32,13 +32,20 @@ def modelTrainer(modelType):
     Graph_Naming = -1
     '''
     #Using the configuration file, we initiate our variables as the user defined,
-    with open("./Init.ini","r") as fp:
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    my_file = os.path.join(THIS_FOLDER, "./Init.ini")
+    with open(my_file,"r") as fp:
         line = fp.readline()
         while line:
             LineCleaner = line.split("=")
             temp = LineCleaner[1][:-1]
             LineCleaner[1] = temp
             #Python has no Switch-case, so we use ifelse statements:
+            if LineCleaner[0] == "New_Model" :
+                if LineCleaner[1] == "New" :
+                    Train_new = True
+                elif LineCleaner[1] == "Old" :
+                    Train_new = False
             if LineCleaner[0] == 'Class_List_From_Gui':
                 if LineCleaner[1] == 'Two_Classes':
                     class_list = Two_Classes
@@ -83,7 +90,9 @@ def modelTrainer(modelType):
 
     #In order to build a correct project folder hirarchy, we make sure a folder for the saved model exists, if not we make one
     try:
-        os.makedirs("./checkpoints")
+        THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+        my_file = os.path.join(THIS_FOLDER, "./checkpoints")
+        os.makedirs(my_file)
     except FileExistsError:
         # directory already exists
         pass
@@ -103,8 +112,15 @@ def modelTrainer(modelType):
     base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(HEIGHT, WIDTH, 3))
     # base_model = ResNet152(weights='imagenet',include_top=False,input_shape=(HEIGHT, WIDTH, 3))
 
-    TRAIN_DIR = "dataset/training"
-    VAL_DIR = "dataset/validation"
+    #Directing the dataset according to the user's choice between two and three classes, scaleable to any number of classes
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    if modelType == 'Two_Classes' :
+        TRAIN_DIR = os.path.join(THIS_FOLDER, "./Datasets/Two_Classes_Datasets/training")
+        VAL_DIR = os.path.join(THIS_FOLDER, "./Datasets/Two_Classes_Datasets/validation")
+    elif modelType == 'Three_Classes' :
+        TRAIN_DIR = os.path.join(THIS_FOLDER, "./Datasets/Three_Classes_Datasets/training")
+        VAL_DIR = os.path.join(THIS_FOLDER, "./Datasets/Three_Classes_Datasets/validation")
+
 
     # Image preproccessing, basic image augmentation, first we push the images throught the ImageDataGenerator,
     # then we flow in into the train and val generators, containing info needed for the model fitting.
@@ -164,9 +180,11 @@ def modelTrainer(modelType):
 
     # Import a model if we have one saved, to continue training from the last training, else make a new one
     modelPath = "./checkpoints/" + modelType + "/" + "ResNet50_model.h5"
-    if os.path.exists(modelPath):
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    my_file = os.path.join(THIS_FOLDER, modelPath)
+    if os.path.exists(my_file) and Train_new == False:
         print('Model named ' + modelType + ' Successfully loaded')
-        finetune_model = tf.keras.models.load_model(modelPath)
+        finetune_model = tf.keras.models.load_model(my_file)
     else:
         print('Building new model')
         finetune_model = build_finetune_model(base_model,
@@ -207,7 +225,10 @@ def modelTrainer(modelType):
     plt.legend(['train', 'validate'], loc='upper left')
     figAcc = plt.gcf()
     plt.show()
-    figAcc.savefig("./checkpoints/" + modelType + "/" + Stamp + "_Accuracy.jpeg")
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    my_file = os.path.join(THIS_FOLDER, "./checkpoints/" + modelType + "/" + Stamp + "_Accuracy.jpeg")
+    figAcc.savefig(my_file)
+
     # summarize history for loss
     plt.plot(history.history['loss'])
     plt.plot(history.history['val_loss'])
@@ -217,14 +238,18 @@ def modelTrainer(modelType):
     plt.legend(['train', 'validate'], loc='upper left')
     figLoss = plt.gcf()
     plt.show()
-    figLoss.savefig("./checkpoints/" + modelType + "/" + Stamp + "_Loss.jpeg")
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    my_file = os.path.join(THIS_FOLDER, "./checkpoints/" + modelType + "/" + Stamp + "_Loss.jpeg")
+    figLoss.savefig(my_file)
     #Runtime in minutes
     Run_time = (End_time - Start_time) // 60
-    print(Run_time)
+
 
 
     model_json = base_model.to_json()
-    with open("./model.json", "w") as json_file:
+    THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    my_file = os.path.join(THIS_FOLDER, "./model.json")
+    with open(my_file, "w") as json_file:
         json_file.write(model_json)
     base_model.save_weights("./weights.h5")
-    return 1
+    return Run_time

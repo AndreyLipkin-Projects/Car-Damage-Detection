@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>464</width>
-    <height>489</height>
+    <height>608</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>New Model Configuration</string>
+   <string>Hyperparameters</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -27,15 +27,34 @@
   <property name="accessibleName">
    <string/>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/Logo/Background.png);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="mainModelGroupBox">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>190</y>
+      <y>260</y>
       <width>441</width>
-      <height>221</height>
+      <height>251</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#mainModelGroupBox{
+background-color: transparent;
+background: none;
+
+background-repeat: none;
+}
+
+</string>
     </property>
     <property name="title">
      <string>Model</string>
@@ -44,13 +63,22 @@
      <property name="geometry">
       <rect>
        <x>250</x>
-       <y>30</y>
+       <y>60</y>
        <width>62</width>
        <height>22</height>
       </rect>
      </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="toolTip">
+      <string extracomment="Testing?"/>
+     </property>
      <property name="decimals">
-      <number>3</number>
+      <number>4</number>
+     </property>
+     <property name="minimum">
+      <double>0.000100000000000</double>
      </property>
      <property name="maximum">
       <double>9999.000000000000000</double>
@@ -59,29 +87,10 @@
       <double>0.000100000000000</double>
      </property>
      <property name="value">
-      <double>0.001000000000000</double>
+      <double>0.000100000000000</double>
      </property>
     </widget>
     <widget class="QDoubleSpinBox" name="L1RegularizationSpinBox">
-     <property name="geometry">
-      <rect>
-       <x>250</x>
-       <y>60</y>
-       <width>62</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="decimals">
-      <number>0</number>
-     </property>
-     <property name="maximum">
-      <double>9999.000000000000000</double>
-     </property>
-     <property name="value">
-      <double>200.000000000000000</double>
-     </property>
-    </widget>
-    <widget class="QDoubleSpinBox" name="ValBatchSizeSpinBox">
      <property name="geometry">
       <rect>
        <x>250</x>
@@ -90,46 +99,212 @@
        <height>22</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string extracomment="test"/>
+     </property>
+     <property name="decimals">
+      <number>2</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
+     </property>
+     <property name="singleStep">
+      <double>0.010000000000000</double>
+     </property>
+     <property name="value">
+      <double>1.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QDoubleSpinBox" name="ValBatchSizeSpinBox">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>210</y>
+       <width>62</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string extracomment="test"/>
+     </property>
      <property name="decimals">
       <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
      </property>
      <property name="maximum">
       <double>9999.000000000000000</double>
      </property>
      <property name="value">
-      <double>0.000000000000000</double>
+      <double>1.000000000000000</double>
      </property>
     </widget>
     <widget class="QDoubleSpinBox" name="TrainBatchSizeSpinBox">
      <property name="geometry">
       <rect>
        <x>250</x>
-       <y>120</y>
+       <y>180</y>
        <width>62</width>
        <height>22</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string extracomment="test"/>
+     </property>
      <property name="decimals">
       <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
      </property>
      <property name="maximum">
       <double>9999.000000000000000</double>
      </property>
      <property name="value">
-      <double>0.000000000000000</double>
+      <double>1.000000000000000</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="learningRateLabel">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>60</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#learningRateLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>Learning rate</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="epochsLabel_2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>180</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#epochsLabel_2{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>Training Batch size</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ValBatchLabel">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>210</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#ValBatchLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>Validation Batch size</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="L1RegularizationLabel">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>90</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#L1RegularizationLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>L1 Regularization</string>
      </property>
     </widget>
     <widget class="QDoubleSpinBox" name="epochsSpinBox">
      <property name="geometry">
       <rect>
        <x>250</x>
-       <y>150</y>
+       <y>30</y>
        <width>62</width>
        <height>22</height>
       </rect>
      </property>
+     <property name="toolTip">
+      <string extracomment="test"/>
+     </property>
      <property name="decimals">
       <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
      </property>
      <property name="maximum">
       <double>9999.000000000000000</double>
@@ -141,156 +316,177 @@
     <widget class="QLabel" name="epochsLabel">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>150</y>
-       <width>71</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Epochs</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="learningRateLabel">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
+       <x>120</x>
        <y>30</y>
        <width>71</width>
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#epochsLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>Learning rate</string>
+      <string>Epochs</string>
      </property>
     </widget>
-    <widget class="QLabel" name="epochsLabel_2">
+    <widget class="QDoubleSpinBox" name="TrainImagesSpin">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>250</x>
        <y>120</y>
-       <width>91</width>
-       <height>16</height>
+       <width>62</width>
+       <height>22</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Training Batch size</string>
+     <property name="toolTip">
+      <string extracomment="test"/>
+     </property>
+     <property name="decimals">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>12.000000000000000</double>
      </property>
     </widget>
-    <widget class="QLabel" name="ValBatchLabel">
+    <widget class="QLabel" name="TrainImages">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>90</y>
+       <x>120</x>
+       <y>120</y>
        <width>101</width>
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#TrainImages{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>Validation Batch size</string>
+      <string>Train Images</string>
      </property>
     </widget>
-    <widget class="QLabel" name="L1RegularizationLabel">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>60</y>
-       <width>91</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>L1 Regularization</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="ClassTypeCombo">
+    <widget class="QDoubleSpinBox" name="ValImagesSpin">
      <property name="geometry">
       <rect>
        <x>250</x>
-       <y>180</y>
-       <width>91</width>
+       <y>150</y>
+       <width>62</width>
        <height>22</height>
       </rect>
      </property>
-     <property name="currentText">
-      <string>Two_Classes</string>
+     <property name="toolTip">
+      <string extracomment="test"/>
      </property>
-     <item>
-      <property name="text">
-       <string>Two_Classes</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Three_Classes</string>
-      </property>
-     </item>
+     <property name="decimals">
+      <number>0</number>
+     </property>
+     <property name="minimum">
+      <double>1.000000000000000</double>
+     </property>
+     <property name="maximum">
+      <double>9999.000000000000000</double>
+     </property>
+     <property name="value">
+      <double>12.000000000000000</double>
+     </property>
     </widget>
-    <widget class="QLabel" name="ClassLabel">
+    <widget class="QLabel" name="ValidationImages">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>180</y>
-       <width>71</width>
+       <x>120</x>
+       <y>150</y>
+       <width>131</width>
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#ValidationImages{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+     </property>
      <property name="text">
-      <string>Class Type</string>
+      <string>Validation Images</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="trainModelButton">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>420</y>
-      <width>130</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Train</string>
-    </property>
    </widget>
    <widget class="QPushButton" name="BackButton">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>420</y>
+      <x>70</x>
+      <y>520</y>
       <width>75</width>
-      <height>23</height>
+      <height>31</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Back</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="LogoName">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>10</y>
-      <width>311</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Brush Script MT</family>
-      <pointsize>28</pointsize>
-      <italic>true</italic>
-     </font>
+    <property name="styleSheet">
+     <string notr="true">#BackButton{
+background-color: transparent;
+border-image: url(:/Logo/Back_up.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+#BackButton:pressed
+{
+   border-image: url(:/Logo/Back_down.png);
+}
+
+</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; color:#00009e;&quot;&gt;Anti Fraud Damage Detector&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="LogoLabel">
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>0</y>
+      <y>40</y>
       <width>221</width>
       <height>201</height>
      </rect>
@@ -301,13 +497,258 @@
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#LogoLabel{
+background-color: transparent;
+border-image: url(:/Logo/Logo.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Logo/Logo.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="HelpButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>520</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click here for help&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#HelpButton{
+background-color: transparent;
+border-image: url(:/Logo/Help_up.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+#HelpButton:pressed
+{
+   border-image: url(:/Logo/Help_down.png);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ClassTypeCombo">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>240</y>
+      <width>121</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="currentText">
+     <string>Damage, Whole</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Damage, Whole</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Front, Rear, Side</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="ClassLabel">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>240</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#ClassLabel{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>Training Classes</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ModelType">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>210</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#ModelType{
+background-color: transparent;
+background: none;
+border: none;
+background-repeat: none;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string>New model?</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ClassTypeCombo_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>210</y>
+      <width>121</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="currentText">
+     <string>Yes-New model</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Yes-New model</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>No-Continue training</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="trainModelButton">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>520</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#trainModelButton{
+background-color: transparent;
+border-image: url(:/Logo/Train_up.png);
+background: none;
+border: none;
+background-repeat: none;
+}
+#trainModelButton:pressed
+{
+   border-image: url(:/Logo/Train_down.png);
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Logotext">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>0</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Brush Script MT</family>
+      <pointsize>28</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#Logotext{
+background-color: transparent;
+border-image: url(:/Logo/Logo1.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Logotext_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Brush Script MT</family>
+      <pointsize>28</pointsize>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#Logotext_2{
+background-color: transparent;
+border-image: url(:/Logo/Logo2.png);
+background: none;
+border: none;
+background-repeat: none;
+}</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <zorder>ClassTypeCombo</zorder>
+   <zorder>LogoLabel</zorder>
+   <zorder>BackButton</zorder>
+   <zorder>ClassLabel</zorder>
+   <zorder>ClassTypeCombo_2</zorder>
+   <zorder>HelpButton</zorder>
+   <zorder>ModelType</zorder>
+   <zorder>mainModelGroupBox</zorder>
+   <zorder>trainModelButton</zorder>
+   <zorder>Logotext</zorder>
+   <zorder>Logotext_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -322,7 +763,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="Logos.qrc"/>
+  <include location="Gui-pngs/Logos.qrc"/>
  </resources>
  <connections/>
 </ui>

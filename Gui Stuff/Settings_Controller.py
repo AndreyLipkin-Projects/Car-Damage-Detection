@@ -17,6 +17,7 @@ class SettingsPage(QMainWindow,Ui_SettingsWindow):
         self.BackButton.clicked.connect(self.closeAndReturn)
         self.HyperparametersButton.clicked.connect(self.hyper)
         self.ChangeClassButton.clicked.connect(self.changeClass)
+        self.ChangeClassButton.hide()
         self.GraphButton.clicked.connect(self.trainGraph)
 
     def closeAndReturn(self):

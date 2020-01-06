@@ -20,8 +20,9 @@ class ResultsPage(QMainWindow, Results.Ui_ResultsWindow):
         # loadUi('Results.ui', self)
         self.ImagePath = fname
         self.setupUi(self)
-        self.BackButton.clicked.connect(self.closeAndReturn)
+
         self.FurtherClassButton.clicked.connect(self.NextClass)
+        self.BackButton.clicked.connect(self.back)
         self.BackButton.hide()
         self.ImagePath=fname
         pixmap = QPixmap(self.ImagePath)
@@ -37,24 +38,42 @@ class ResultsPage(QMainWindow, Results.Ui_ResultsWindow):
         predes=str(predes).split(" ")
 
         if float(predes[0]) > 0.7:
-            self.DamageTypeLabel.setText("Vehicle Damaged")
-
+            test=predes[0]
+            test='{0:0.2f}'.format(100*float(test))
+            self.DamageText.setText("Vehicle Damaged: " + test + "%")
         elif float(predes[1]) > 0.7:
-            self.DamageTypeLabel.setText("Vehicle Whole")
+            self.DamageText.setText("Vehicle Whole: " + str( predes[1]) + "%")
             self.FurtherClassButton.hide()
         else :
-            self.DamageTypeLabel.setText("Unable to calculate")
+            self.DamageText.setText("Unable to calculate")
+            self.FurtherClassButton.hide()
 
     def NextClass(self):
         Preds = Prediction('Three_Classes', self.ImagePath)
         predes = str(Preds).replace("[", "").replace("]", "")
         predes = str(predes).split(" ")
-        print(predes)
+        front=Preds[0][0]
+        rear=Preds[0][1]
+        side=Preds[0][2]
+
+
+        self.DamageText.setText("Damage classification: <br>" + "Front = "+'{0:0.2f}'.format(100*float(front)) + "%<br>" + "Rear = "+'{0:0.2f}'.format(100*float(rear)) + "%<br>" + "Side = "+'{0:0.2f}'.format(100*float(side)) + "%<br>")
+        self.FurtherClassButton.hide()
+
+
+    def back(self):
+        self.close()
+        self.damageclass()
+
 
     def closeAndReturn(self):
         self.close()
         self.parent().show()
 
+    def damageclass(self):
+        self.Upload_page = UploadImage_Controller.UploadImagePage(self)
+        self.Upload_page.show()
+        self.hide()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
