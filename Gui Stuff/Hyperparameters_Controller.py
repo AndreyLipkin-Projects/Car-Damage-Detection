@@ -1,5 +1,8 @@
 import os
 import sys
+
+from PyQt5 import QtCore
+from PyQt5.QtGui import QMovie
 from PyQt5.QtWidgets import QMessageBox, QApplication, QDialog, QMainWindow
 from PyQt5.uic import loadUi
 
@@ -16,17 +19,30 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
         self.setupUi(self)
         self.BackButton.clicked.connect(self.closeAndReturn)
         self.trainModelButton.clicked.connect(self.trainSystem)
+        self.GifLabel.hide()
         self.HelpButton.clicked.connect(self.show_help_info)
-        Path = ".\PycharmProjects\Test\Init.ini"
-        THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+        #self.threaclass=ThreadClass()
+        #self.threaclass.finished.connect(self.Damage2class)
+        #self.threaclass.start()
+
+        Path = "./Init.ini"
+        THIS_FOLDER = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
         my_file = os.path.join(THIS_FOLDER, Path)
 
-        self.Readparametrs("C:/Users/alipkine/PycharmProjects/Test/Init.ini")
+        self.Readparametrs(my_file)
+        movie = QMovie("Gui-pngs/LoadingGif.gif")
+        self.GifLabel.setMovie(movie)
+        movie.start()
 
     def trainSystem(self):
+        self.trainModelButton.hide()
+        self.BackButton.hide()
+        self.GifLabel.show()
         Train_Type = ""
-
-        with open("C:/Users/alipkine/PycharmProjects/Test/Init.ini") as f:
+        Path = "./Init.ini"
+        THIS_FOLDER = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
+        my_file = os.path.join(THIS_FOLDER, Path)
+        with open(my_file) as f:
             lines = f.readlines()
             counter = 0
             for x in lines:
@@ -54,13 +70,16 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
                     lines[counter] = ("Val_BatchSize_From_Gui=" + str(int(self.ValBatchSizeSpinBox.value())) + '\n')
                 counter+=1
         f.close()
-
-        with open("C:/Users/alipkine/PycharmProjects/Test/Init.ini", 'w') as output:
+        Path = "./Init.ini"
+        THIS_FOLDER = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
+        my_file = os.path.join(THIS_FOLDER, Path)
+        with open(my_file, 'w') as output:
             for row in lines:
                 output.write(str(row))
 
-
-        modelTrainer(Train_Type)
+        self.threaclass = ThreadClass(Train_Type)
+        self.threaclass.start()
+        #modelTrainer(Train_Type)
 
     def Readparametrs(self, path):
 
@@ -105,7 +124,16 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
         msg.setText(message)
         msg.setWindowTitle("Information")
         msg.exec()
+class ThreadClass(QtCore.QThread):
 
+
+    def __init__(self,Train_Type, parent=None):
+        super(ThreadClass, self).__init__(parent)
+        self.Train_Type=Train_Type
+
+    def run(self):
+        modelTrainer(self.Train_Type)
+        HyperparametersPage.GifLabel.hide()
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     menuWindow = HyperparametersPage()

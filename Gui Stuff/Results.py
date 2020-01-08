@@ -39,41 +39,6 @@ class Ui_ResultsWindow(object):
 "")
         self.Logo.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Logo.setObjectName("Logo")
-        self.BackButton = QtWidgets.QPushButton(self.centralwidget)
-        self.BackButton.setGeometry(QtCore.QRect(205, 436, 61, 31))
-        self.BackButton.setStyleSheet("#BackButton{\n"
-                                      "background-color: transparent;\n"
-                                      "border-image: url(Gui-pngs/Back_up.png);\n"
-                                      "background: none;\n"
-                                      "border: none;\n"
-                                      "background-repeat: none;\n"
-                                      "}\n"
-                                      "#BackButton:pressed\n"
-                                      "{\n"
-                                      "   border-image: url(Gui-pngs/Back_down.png);\n"
-                                      "}\n"
-                                      "\n"
-                                      "")
-        self.BackButton.setText("")
-        self.BackButton.setObjectName("BackButton")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(0, 400, 161, 21))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setStyleSheet("#label{\n"
-"background-color: transparent;\n"
-"background: none;\n"
-"border: none;\n"
-"background-repeat: none;\n"
-"}\n"
-"\n"
-"")
-        self.label.setObjectName("label")
-        self.label.hide()
         self.DamagCarPicLabel = QtWidgets.QLabel(self.centralwidget)
         self.DamagCarPicLabel.setGeometry(QtCore.QRect(90, 210, 331, 181))
         self.DamagCarPicLabel.setStyleSheet("#DamagCarPicLabel{\n"
@@ -168,16 +133,26 @@ class Ui_ResultsWindow(object):
         self.HelpButton.setText("")
         self.HelpButton.setObjectName("HelpButton")
         self.DamageText = QtWidgets.QTextEdit(self.centralwidget)
-        self.DamageText.setGeometry(QtCore.QRect(150, 400, 211, 81))
+        self.DamageText.setGeometry(QtCore.QRect(150, 400, 211, 91))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         self.DamageText.setFont(font)
-        self.DamageText.setStyleSheet("\n"
-"")
+        self.DamageText.setStyleSheet("")
         self.DamageText.setObjectName("DamageText")
-        self.DamageText.setAlignment(QtCore.Qt.AlignCenter)
+        self.GifLabel = QtWidgets.QLabel(self.centralwidget)
+        self.GifLabel.setGeometry(QtCore.QRect(220, 400, 211, 91))
+        self.GifLabel.setStyleSheet("#GifLabel{\n"
+"background-color: transparent;\n"
+"background: none;\n"
+"\n"
+"background-repeat: none;\n"
+"}\n"
+"\n"
+"")
+        self.GifLabel.setText("")
+        self.GifLabel.setObjectName("GifLabel")
         ResultsWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(ResultsWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 507, 21))
@@ -194,7 +169,6 @@ class Ui_ResultsWindow(object):
         _translate = QtCore.QCoreApplication.translate
         ResultsWindow.setWindowTitle(_translate("ResultsWindow", "Results"))
         self.Logo.setText(_translate("ResultsWindow", "<html><head/><body><p><br/></p></body></html>"))
-        self.label.setText(_translate("ResultsWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Damage Locations: </span></p></body></html>"))
         self.Logotext.setText(_translate("ResultsWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.Logotext_2.setText(_translate("ResultsWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.HelpButton.setToolTip(_translate("ResultsWindow", "<html><head/><body><p>Click here for help</p></body></html>"))

@@ -350,6 +350,18 @@ class Ui_HyperparametersPage(object):
 "background-repeat: none;\n"
 "}")
         self.Logotext_2.setObjectName("Logotext_2")
+        self.GifLabel = QtWidgets.QLabel(self.centralwidget)
+        self.GifLabel.setGeometry(QtCore.QRect(200, 500, 211, 91))
+        self.GifLabel.setStyleSheet("#GifLabel{\n"
+"background-color: transparent;\n"
+"background: none;\n"
+"\n"
+"background-repeat: none;\n"
+"}\n"
+"\n"
+"")
+        self.GifLabel.setText("")
+        self.GifLabel.setObjectName("GifLabel")
         self.ClassTypeCombo.raise_()
         self.LogoLabel.raise_()
         self.BackButton.raise_()
@@ -361,6 +373,7 @@ class Ui_HyperparametersPage(object):
         self.trainModelButton.raise_()
         self.Logotext.raise_()
         self.Logotext_2.raise_()
+        self.GifLabel.raise_()
         HyperparametersPage.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(HyperparametersPage)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 464, 21))
@@ -396,7 +409,6 @@ class Ui_HyperparametersPage(object):
         self.ClassTypeCombo_2.setItemText(1, _translate("HyperparametersPage", "No-Continue training"))
         self.Logotext.setText(_translate("HyperparametersPage", "<html><head/><body><p><br/></p></body></html>"))
         self.Logotext_2.setText(_translate("HyperparametersPage", "<html><head/><body><p><br/></p></body></html>"))
-
 
 
 if __name__ == "__main__":

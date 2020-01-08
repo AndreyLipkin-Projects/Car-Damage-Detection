@@ -179,6 +179,7 @@ def modelTrainer(modelType):
     dropout = 0.5
 
     # Import a model if we have one saved, to continue training from the last training, else make a new one
+    # C:\Users\alipkine\PycharmProjects\Test\checkpoints\Two_Classes\ResNet50_model.h5
     modelPath = "./checkpoints/" + modelType + "/" + "ResNet50_model.h5"
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
     my_file = os.path.join(THIS_FOLDER, modelPath)
@@ -200,7 +201,7 @@ def modelTrainer(modelType):
 
     from livelossplot import PlotLossesKeras
     # filepath="./checkpoints/" + "  ResNet152" + "_model_weights.h5"
-    checkpoint = ModelCheckpoint(modelPath, monitor=["acc"], verbose=1, mode='max')
+    checkpoint = ModelCheckpoint(my_file, monitor=["acc"], verbose=1, mode='max')
     callbacks_list = [checkpoint]  # ,PlotLossesKeras()
 
     # Present the model's structure

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="Logo">
+    <file>LoadingGif.gif</file>
     <file>Logo1.png</file>
     <file>Logo2.png</file>
     <file>Back_down.png</file>

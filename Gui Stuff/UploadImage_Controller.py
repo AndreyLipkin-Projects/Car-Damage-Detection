@@ -31,7 +31,7 @@ class UploadImagePage(QMainWindow,Upload_image.Ui_UploadImagewindow):
             pass
 
         ImagePath,_filter = QFileDialog.getOpenFileName(self, 'Open file',
-                                            'C:/Users/alipkine/PycharmProjects/Test/dataset4/validation/whole', "Image files (*.jpg *png *.jpeg)")
+                                            'C:/', "Image files (*.jpg *png *.jpeg)")
         self.FilenameLabel.setText(ImagePath)
         #print(Prediction('Two_Classes', fname ))
 

@@ -738,6 +738,29 @@ background-repeat: none;
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QLabel" name="GifLabel">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>500</y>
+      <width>211</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#GifLabel{
+background-color: transparent;
+background: none;
+
+background-repeat: none;
+}
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>ClassTypeCombo</zorder>
    <zorder>LogoLabel</zorder>
    <zorder>BackButton</zorder>
@@ -749,6 +772,7 @@ background-repeat: none;
    <zorder>trainModelButton</zorder>
    <zorder>Logotext</zorder>
    <zorder>Logotext_2</zorder>
+   <zorder>GifLabel</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
