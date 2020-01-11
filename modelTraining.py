@@ -206,7 +206,7 @@ def modelTrainer(modelType):
 
     # Present the model's structure
     finetune_model.summary()
-    # Training the model using trian and val datasets set up at the top of the file
+    # Training the model using train and val datasets set up at the top of the file
     Start_time = time.time()
     history = finetune_model.fit_generator(train_generator, epochs=NUM_EPOCHS, workers=8,
                                            steps_per_epoch=num_train_images // TRAIN_BATCH_SIZE,
