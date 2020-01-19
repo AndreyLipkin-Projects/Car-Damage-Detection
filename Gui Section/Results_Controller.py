@@ -26,7 +26,6 @@ class ResultsPage(QMainWindow, Results.Ui_ResultsWindow):
         self.ThreeClassButton.clicked.connect(self.Damage3class)
         self.BackButton.hide()
         self.HelpButton.hide()
-        self.BackButton.hide()
         self.DamageText.hide()
         self.ThreeClassButton.hide()
         self.TwoClassButton.hide()
@@ -41,7 +40,7 @@ class ResultsPage(QMainWindow, Results.Ui_ResultsWindow):
     def ShowButtons(self):
         self.GifLabel.hide()
         self.Damage2class()
-        self.BackButton.show()
+
 
     #Show info for the two class classification
     def Damage2class(self):
@@ -56,6 +55,7 @@ class ResultsPage(QMainWindow, Results.Ui_ResultsWindow):
             self.DamageText.setText("Vehicle is damaged but doesn't pass for our detection threshold")
         elif float(predes[0][1]) > 0.8:
             self.DamageText.setText("Vehicle Whole: " + '{0:0.2f}'.format(100*float(predes[0][1])) + "%")
+            self.ThreeClassButton.hide()
         elif (float(predes[0][1]) < 0.8) and (float(predes[0][0]) <float(predes[0][1])) :
             self.DamageText.setText("Vehicle is whole but doesn't pass for our detection threshold")
         self.DamageText.show()
