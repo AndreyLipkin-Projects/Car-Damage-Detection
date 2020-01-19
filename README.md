@@ -49,7 +49,17 @@ pip install --upgrade keras==2.2.4
 pip install --upgrade PyQt5
 
 We advise you use Pycharm IDE in order to view and run our source code. If you followed the instructions so far, when opening the IDE you will have an option to choose an Existing Interpreter, where you can navigate to the location of your Virtual Environment, usually at C:\Users\"Your user name"\miniconda\envs\"Your environment name"\python.exe, or if you already have the IDE installed, once you open the project you need to attach the Interpreter to it.
-Once attached, Run the code via the Login_Controller.py file, and use "admin" both for username and password.
+Once attached:
+
+1)right click the "Gui Section" folder and right click
+
+2)"Make Directory As  -> Source Root
+
+3)Then Run the code via the Login_Controller.py file, and use "admin" both for username and password.
+
+
+# Results
+
 
 ![Accuracy of two class model](checkpoints/Two_Classes/Two_Classes_Accuracy.jpeg)
 

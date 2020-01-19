@@ -206,7 +206,7 @@ def modelTrainer(modelType):
 
     # Present the model's structure
     finetune_model.summary()
-    # Training the model using train and val datasets set up at the top of the file
+    # Training the model using trian and val datasets set up at the top of the file
     Start_time = time.time()
     history = finetune_model.fit_generator(train_generator, epochs=NUM_EPOCHS, workers=8,
                                            steps_per_epoch=num_train_images // TRAIN_BATCH_SIZE,
@@ -225,7 +225,7 @@ def modelTrainer(modelType):
     plt.xlabel('epoch')
     plt.legend(['train', 'validate'], loc='upper left')
     figAcc = plt.gcf()
-    plt.show()
+    #plt.show()
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
     my_file = os.path.join(THIS_FOLDER, "./checkpoints/" + modelType + "/" + Stamp + "_Accuracy.jpeg")
     figAcc.savefig(my_file)
@@ -238,14 +238,12 @@ def modelTrainer(modelType):
     plt.xlabel('epoch')
     plt.legend(['train', 'validate'], loc='upper left')
     figLoss = plt.gcf()
-    plt.show()
+    #plt.show()
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
     my_file = os.path.join(THIS_FOLDER, "./checkpoints/" + modelType + "/" + Stamp + "_Loss.jpeg")
     figLoss.savefig(my_file)
     #Runtime in minutes
     Run_time = (End_time - Start_time) // 60
-
-
 
     model_json = base_model.to_json()
     THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
@@ -254,3 +252,5 @@ def modelTrainer(modelType):
         json_file.write(model_json)
     base_model.save_weights("./weights.h5")
     return Run_time
+
+

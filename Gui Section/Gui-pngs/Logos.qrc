@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="Logo">
+    <file>ThreeClass_Down.png</file>
+    <file>ThreeClass_Up.png</file>
+    <file>TwoClass_Down.png</file>
+    <file>TwoClass_Up.png</file>
     <file>LoadingGif.gif</file>
     <file>Logo1.png</file>
     <file>Logo2.png</file>

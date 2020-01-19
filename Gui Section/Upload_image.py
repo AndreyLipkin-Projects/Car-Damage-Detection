@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QCursor
 
 
 class Ui_UploadImagewindow(object):
@@ -41,6 +42,7 @@ class Ui_UploadImagewindow(object):
         self.Logo.setObjectName("Logo")
         self.UploadButton = QtWidgets.QPushButton(self.centralwidget)
         self.UploadButton.setGeometry(QtCore.QRect(100, 220, 151, 31))
+        self.UploadButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.UploadButton.setStyleSheet("#UploadButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/UploadCar_up.png);\n"
@@ -58,6 +60,7 @@ class Ui_UploadImagewindow(object):
         self.UploadButton.setObjectName("UploadButton")
         self.DamageclassificationButton = QtWidgets.QPushButton(self.centralwidget)
         self.DamageclassificationButton.setGeometry(QtCore.QRect(80, 290, 191, 31))
+        self.DamageclassificationButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.DamageclassificationButton.setStyleSheet("#DamageclassificationButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/GetDmgClass_up.png);\n"
@@ -75,6 +78,7 @@ class Ui_UploadImagewindow(object):
         self.DamageclassificationButton.setObjectName("DamageclassificationButton")
         self.BackButton = QtWidgets.QPushButton(self.centralwidget)
         self.BackButton.setGeometry(QtCore.QRect(150, 330, 51, 21))
+        self.BackButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.BackButton.setStyleSheet("#BackButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Back_up.png);\n"
@@ -139,6 +143,7 @@ class Ui_UploadImagewindow(object):
         self.Logotext_2.setObjectName("Logotext_2")
         self.HelpButton = QtWidgets.QPushButton(self.centralwidget)
         self.HelpButton.setGeometry(QtCore.QRect(0, 330, 31, 31))
+        self.HelpButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.HelpButton.setStyleSheet("#HelpButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Help_up.png);\n"

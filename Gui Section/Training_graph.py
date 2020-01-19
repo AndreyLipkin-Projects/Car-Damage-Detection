@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QCursor
 
 
 class Ui_TrainGraphWindow(object):
@@ -15,7 +16,7 @@ class Ui_TrainGraphWindow(object):
         TrainGraphWindow.setObjectName("TrainGraphWindow")
         TrainGraphWindow.resize(1244, 770)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("Gui-pngs/Logo_2.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("Gui-pngs/Logo.png"), QtGui.QIcon.Selected, QtGui.QIcon.On)
         TrainGraphWindow.setWindowIcon(icon)
         TrainGraphWindow.setStyleSheet("background-image: url(Gui-pngs/Background.png);")
         TrainGraphWindow.setDocumentMode(False)
@@ -30,7 +31,7 @@ class Ui_TrainGraphWindow(object):
         self.Logo.setSizePolicy(sizePolicy)
         self.Logo.setStyleSheet("#Logo{\n"
 "background-color: transparent;\n"
-"border-image: url(Gui-pngs/Logo_2.png);\n"
+"border-image: url(Gui-pngs/Logo.png);\n"
 "background: none;\n"
 "border: none;\n"
 "background-repeat: none;\n"
@@ -41,6 +42,7 @@ class Ui_TrainGraphWindow(object):
         self.Logo.setObjectName("Logo")
         self.BackButton = QtWidgets.QPushButton(self.centralwidget)
         self.BackButton.setGeometry(QtCore.QRect(590, 690, 61, 31))
+        self.BackButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.BackButton.setStyleSheet("#BackButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Back_up.png);\n"
@@ -117,6 +119,7 @@ class Ui_TrainGraphWindow(object):
         self.LossGraphLabel.setObjectName("LossGraphLabel")
         self.HelpButton = QtWidgets.QPushButton(self.centralwidget)
         self.HelpButton.setGeometry(QtCore.QRect(10, 690, 31, 31))
+        self.HelpButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.HelpButton.setStyleSheet("#HelpButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Help_up.png);\n"

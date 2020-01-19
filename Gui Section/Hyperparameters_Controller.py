@@ -1,39 +1,29 @@
 import os
 import sys
-
 from PyQt5 import QtCore
 from PyQt5.QtGui import QMovie
 from PyQt5.QtWidgets import QMessageBox, QApplication, QDialog, QMainWindow
-from PyQt5.uic import loadUi
-
 from Hyperparameters import Ui_HyperparametersPage
 from modelTraining import modelTrainer
 
-
 class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
-
 
     def __init__(self, parent=None):
         super(HyperparametersPage, self).__init__(parent)
-        # loadUi('Hyperparameters.ui',self)
         self.setupUi(self)
         self.BackButton.clicked.connect(self.closeAndReturn)
         self.trainModelButton.clicked.connect(self.trainSystem)
         self.GifLabel.hide()
         self.HelpButton.clicked.connect(self.show_help_info)
-        #self.threaclass=ThreadClass()
-        #self.threaclass.finished.connect(self.Damage2class)
-        #self.threaclass.start()
-
         Path = "./Init.ini"
         THIS_FOLDER = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..'))
         my_file = os.path.join(THIS_FOLDER, Path)
-
         self.Readparametrs(my_file)
         movie = QMovie("Gui-pngs/LoadingGif.gif")
         self.GifLabel.setMovie(movie)
         movie.start()
 
+    #Update the init file values from the users input and start system training
     def trainSystem(self):
         self.trainModelButton.hide()
         self.BackButton.hide()
@@ -78,9 +68,10 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
                 output.write(str(row))
 
         self.threaclass = ThreadClass(Train_Type)
+        self.threaclass.finished.connect(self.TrainDone)
         self.threaclass.start()
-        #modelTrainer(Train_Type)
 
+    #Read values from the init file to present to the user
     def Readparametrs(self, path):
 
         with open(path) as f:
@@ -108,20 +99,17 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
             f.close()
 
     def closeAndReturn(self):
-        self.close()
         self.parent().show()
+        self.hide()
 
-    def slider_callback(self):
-        percentage = self.trainingValidationSlider.value()
-        percentage_text = str(percentage) + "%"
-        self.trainingPercentageLineEdit.setText(percentage_text)
-        percentage = 100 - percentage
-        percentage_text = str(percentage) + "%"
-        self.validationPercentageLineEdit.setText(percentage_text)
+    #Display when the training is done.
+    def TrainDone(self):
+        self.GifLabel.hide()
+        self.BackButton.show()
 
+    #Help info
     def show_help_info(self):
         QMessageBox.about(self,"Information", "In this window you setup the needed values the system needs in order for you to be able to train a new or an existing model")
-      #  self.display_information_message("In this window you setup the needed values the system needs in order for you to be able to train a new or an existing model")
 
     def display_information_message(self, message):
         msg = QMessageBox()
@@ -129,8 +117,11 @@ class HyperparametersPage(QMainWindow, Ui_HyperparametersPage):
         msg.setText(message)
         msg.setWindowTitle("Information")
         msg.exec()
+
+#Thread for system training
 class ThreadClass(QtCore.QThread):
 
+    TrainStatus = False
 
     def __init__(self,Train_Type, parent=None):
         super(ThreadClass, self).__init__(parent)
@@ -138,7 +129,10 @@ class ThreadClass(QtCore.QThread):
 
     def run(self):
         modelTrainer(self.Train_Type)
-        HyperparametersPage.GifLabel.hide()
+
+    def closeEvent(self, event):
+        sys.exit(0)
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     menuWindow = HyperparametersPage()

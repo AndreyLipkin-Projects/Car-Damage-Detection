@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QCursor
 
 
 class Ui_HyperparametersPage(object):
@@ -211,6 +212,7 @@ class Ui_HyperparametersPage(object):
         self.ValidationImages.setObjectName("ValidationImages")
         self.BackButton = QtWidgets.QPushButton(self.centralwidget)
         self.BackButton.setGeometry(QtCore.QRect(70, 520, 75, 31))
+        self.BackButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.BackButton.setStyleSheet("#BackButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Back_up.png);\n"
@@ -246,6 +248,7 @@ class Ui_HyperparametersPage(object):
         self.LogoLabel.setObjectName("LogoLabel")
         self.HelpButton = QtWidgets.QPushButton(self.centralwidget)
         self.HelpButton.setGeometry(QtCore.QRect(0, 520, 31, 31))
+        self.HelpButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.HelpButton.setStyleSheet("#HelpButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Help_up.png);\n"
@@ -306,6 +309,7 @@ class Ui_HyperparametersPage(object):
         self.ClassTypeCombo_2.addItem("")
         self.trainModelButton = QtWidgets.QPushButton(self.centralwidget)
         self.trainModelButton.setGeometry(QtCore.QRect(360, 520, 71, 31))
+        self.trainModelButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.trainModelButton.setStyleSheet("#trainModelButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Train_up.png);\n"

@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QCursor
 
 
 class Ui_MainMenuWindow(object):
@@ -41,6 +42,7 @@ class Ui_MainMenuWindow(object):
         self.Logo.setObjectName("Logo")
         self.LocalizationButton = QtWidgets.QPushButton(self.centralwidget)
         self.LocalizationButton.setGeometry(QtCore.QRect(60, 210, 201, 31))
+        self.LocalizationButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.LocalizationButton.setStyleSheet("#LocalizationButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/GetClassification_up.png);\n"
@@ -58,6 +60,7 @@ class Ui_MainMenuWindow(object):
         self.LocalizationButton.setObjectName("LocalizationButton")
         self.TrainButton = QtWidgets.QPushButton(self.centralwidget)
         self.TrainButton.setGeometry(QtCore.QRect(70, 250, 181, 41))
+        self.TrainButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.TrainButton.setStyleSheet("#TrainButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/TrainSystem_up.png);\n"
@@ -75,6 +78,7 @@ class Ui_MainMenuWindow(object):
         self.TrainButton.setObjectName("TrainButton")
         self.BackButton = QtWidgets.QPushButton(self.centralwidget)
         self.BackButton.setGeometry(QtCore.QRect(130, 310, 51, 21))
+        self.BackButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.BackButton.setStyleSheet("#BackButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Back_up.png);\n"
@@ -122,6 +126,7 @@ class Ui_MainMenuWindow(object):
         self.Logotext_2.setObjectName("Logotext_2")
         self.HelpButton = QtWidgets.QPushButton(self.centralwidget)
         self.HelpButton.setGeometry(QtCore.QRect(0, 310, 31, 31))
+        self.HelpButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.HelpButton.setStyleSheet("#HelpButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Help_up.png);\n"

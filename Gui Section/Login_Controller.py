@@ -1,26 +1,19 @@
 import sys
-from getpass import getpass
-from os.path import dirname, realpath
-
-from PyQt5 import QtCore, QtGui
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMessageBox, QApplication, QDialog, QMainWindow, QLineEdit
-from PyQt5.uic import loadUi
+from PyQt5.QtWidgets import QMessageBox, QApplication, QMainWindow, QLineEdit
 from Login import Ui_LoginWindow
 
-user_list = ["andrey"]
-pass_list = ["123"]
-
+user_list = ["admin"]
+pass_list = ["admin"]
 
 class LoginPage(QMainWindow,Ui_LoginWindow):
 
     def __init__(self):
         super(LoginPage, self).__init__()
-        #loadUi('Login.ui',self)
         self.setupUi(self)
         self.PasswordInput.setEchoMode(QLineEdit.Password)
         self.LoginButton.clicked.connect(self.openMainMenu)
 
+    #Progams first page, check credentials
     def openMainMenu(self):
         username = self.UserNameInput.text()
         password = self.PasswordInput.text()
@@ -29,18 +22,19 @@ class LoginPage(QMainWindow,Ui_LoginWindow):
                 if password == pass_list[user_list.index(username)]:
                     self.mainmenuwindow()
                 else:
-                    self.display_error_message("Username / password incorrect")
+                    self.display_error_message("Username / Password incorrect")
 
         except ValueError:
-            self.display_error_message("no such user")
+            self.display_error_message("No such user exist in the system")
 
+    #Present the main menu page after login
     def mainmenuwindow(self):
         from MainMenu_Controller import MainMenuPage
         self.mainmenu_page = MainMenuPage(self)
         self.mainmenu_page.show()
         self.hide()
 
-
+    #Display error function
     def display_error_message(self,message):
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Critical)
@@ -48,8 +42,12 @@ class LoginPage(QMainWindow,Ui_LoginWindow):
         msg.setWindowTitle("Error")
         msg.exec_()
 
+    def closeEvent(self, event):
+        sys.exit(0)
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setQuitOnLastWindowClosed(False)
     LoginWindow = LoginPage()
     LoginWindow.show()
     sys.exit(app.exec_())

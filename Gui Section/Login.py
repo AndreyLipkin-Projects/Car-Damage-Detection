@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QCursor
 
 
 class Ui_LoginWindow(object):
@@ -54,6 +55,7 @@ class Ui_LoginWindow(object):
         self.label_2.setObjectName("label_2")
         self.LoginButton = QtWidgets.QPushButton(self.centralwidget)
         self.LoginButton.setGeometry(QtCore.QRect(120, 300, 81, 31))
+        self.LoginButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.LoginButton.setStyleSheet("#LoginButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Login_up.png);\n"

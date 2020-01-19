@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QCursor
 
 
 class Ui_SettingsWindow(object):
@@ -41,6 +42,7 @@ class Ui_SettingsWindow(object):
         self.Logo.setObjectName("Logo")
         self.HyperparametersButton = QtWidgets.QPushButton(self.centralwidget)
         self.HyperparametersButton.setGeometry(QtCore.QRect(85, 234, 161, 41))
+        self.HyperparametersButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.HyperparametersButton.setStyleSheet("#HyperparametersButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Hyperparameters_up.png);\n"
@@ -58,9 +60,11 @@ class Ui_SettingsWindow(object):
         self.HyperparametersButton.setObjectName("HyperparametersButton")
         self.ChangeClassButton = QtWidgets.QPushButton(self.centralwidget)
         self.ChangeClassButton.setGeometry(QtCore.QRect(115, 264, 101, 21))
+        self.ChangeClassButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.ChangeClassButton.setObjectName("ChangeClassButton")
         self.GraphButton = QtWidgets.QPushButton(self.centralwidget)
         self.GraphButton.setGeometry(QtCore.QRect(85, 284, 161, 31))
+        self.GraphButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.GraphButton.setStyleSheet("#GraphButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/TrainGraph_up.png);\n"
@@ -78,6 +82,7 @@ class Ui_SettingsWindow(object):
         self.GraphButton.setObjectName("GraphButton")
         self.BackButton = QtWidgets.QPushButton(self.centralwidget)
         self.BackButton.setGeometry(QtCore.QRect(130, 340, 61, 21))
+        self.BackButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.BackButton.setStyleSheet("#BackButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Back_up.png);\n"
@@ -95,6 +100,7 @@ class Ui_SettingsWindow(object):
         self.BackButton.setObjectName("BackButton")
         self.HelpButton = QtWidgets.QPushButton(self.centralwidget)
         self.HelpButton.setGeometry(QtCore.QRect(0, 340, 31, 31))
+        self.HelpButton.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.HelpButton.setStyleSheet("#HelpButton{\n"
 "background-color: transparent;\n"
 "border-image: url(Gui-pngs/Help_up.png);\n"

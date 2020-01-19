@@ -1,12 +1,7 @@
 import sys
-import threading
-from typing import re
-
 from PyQt5 import QtCore
 from PyQt5.QtGui import QPixmap, QMovie
-from PyQt5.QtWidgets import QMessageBox, QApplication, QDialog, QMainWindow, QFileDialog
-from PyQt5.uic import loadUi
-
+from PyQt5.QtWidgets import QMessageBox, QApplication, QMainWindow
 import Results
 import UploadImage_Controller
 from Predict import Prediction
@@ -15,82 +10,72 @@ ImagePath = ""
 predes=""
 
 class ResultsPage(QMainWindow, Results.Ui_ResultsWindow):
+
+
     ImagePath = ""
 
     def __init__(self, fname, parent=None):
         super(ResultsPage, self).__init__(parent)
-        # loadUi('Results.ui', self)
-
         ImagePath = fname
         self.setupUi(self)
         self.ImagePath=fname
         self.threaclass=ThreadClass(ImagePath)
-        self.threaclass.finished.connect(self.Damage2class)
+        self.threaclass.finished.connect(self.ShowButtons)
         self.threaclass.start()
-        self.FurtherClassButton.clicked.connect(self.Damage3class)
-        self.BackButton.clicked.connect(self.back)
-        #self.connect(self.threaclass,QtCore.PYQT_SIGNAL('test'),self.DamageSwitch())
+        self.TwoClassButton.clicked.connect(self.Damage2class)
+        self.ThreeClassButton.clicked.connect(self.Damage3class)
+        self.BackButton.hide()
+        self.HelpButton.hide()
+        self.BackButton.hide()
         self.DamageText.hide()
-        self.FurtherClassButton.hide()
+        self.ThreeClassButton.hide()
+        self.TwoClassButton.hide()
         pixmap = QPixmap(self.ImagePath)
         pixmap = pixmap.scaled(331, 191)
         self.DamagCarPicLabel.setPixmap(pixmap)
         movie = QMovie("Gui-pngs/LoadingGif.gif")
         self.GifLabel.setMovie(movie)
         movie.start()
-        #self.DamageTypeLabel.setText(str(Prediction('Two_Classes', self.ImagePath)))
-        #self.DamageSwitch()
 
-
-    def Damage2class(self):
-        self.threaclass.terminate()
+    #Enable buttons after classification
+    def ShowButtons(self):
         self.GifLabel.hide()
-        self.DamageText.show()
+        self.Damage2class()
+        self.BackButton.show()
+
+    #Show info for the two class classification
+    def Damage2class(self):
+        self.TwoClassButton.hide()
+        self.ThreeClassButton.show()
         predes=ThreadClass.TwoClassPred
         if float(predes[0][0]) > 0.8:
             test=predes[0][0]
             test='{0:0.2f}'.format(100*float(test))
             self.DamageText.setText("Vehicle Damaged: " + test + "%")
-            self.FurtherClassButton.show()
-        elif (float(predes[0][0]) < 0.8) and (float(predes[0][1]) < 0.5): #damaged but not enough to pass the threshold
+        elif (float(predes[0][0]) < 0.8) and (float(predes[0][1]) <float(predes[0][0])): #damaged but not enough to pass the threshold
             self.DamageText.setText("Vehicle is damaged but doesn't pass for our detection threshold")
         elif float(predes[0][1]) > 0.8:
-            self.DamageText.setText("Vehicle Whole: " + str( predes[0][1]) + "%")
-        elif (float(predes[0][1]) < 0.8) and (float(predes[0][0]) < 0.5) :
+            self.DamageText.setText("Vehicle Whole: " + '{0:0.2f}'.format(100*float(predes[0][1])) + "%")
+        elif (float(predes[0][1]) < 0.8) and (float(predes[0][0]) <float(predes[0][1])) :
             self.DamageText.setText("Vehicle is whole but doesn't pass for our detection threshold")
+        self.DamageText.show()
 
+    # Show info for the three class classification
     def Damage3class(self):
-        self.DamageText.hide()
-        self.FurtherClassButton.hide()
-        self.GifLabel.show()
+        self.TwoClassButton.show()
+        self.ThreeClassButton.hide()
         Preds = ThreadClass.ThreeClassPred
-        self.GifLabel.hide()
         front=Preds[0][0]
         rear=Preds[0][1]
         side=Preds[0][2]
         self.DamageText.setText("Damage classification: <br>" + "Front = "+'{0:0.2f}'.format(100*float(front)) + "%<br>" + "Rear =  "+'{0:0.2f}'.format(100*float(rear)) + "%<br>" + "Side =  "+'{0:0.2f}'.format(100*float(side)) + "%<br>")
-        self.FurtherClassButton.hide()
         self.DamageText.show()
 
-
-    def back(self):
-        self.close()
-        from MainMenu_Controller import MainMenuPage
-        self.mainmenu_page = MainMenuPage(self)
-        self.mainmenu_page.show()
-
-
-    def closeAndReturn(self):
-        self.close()
-        self.parent().show()
-
-    def damageclass(self):
-        self.Upload_page = UploadImage_Controller.UploadImagePage(self)
-        self.Upload_page.show()
-        self.hide()
-
+    #Help info
     def show_help_info(self):
         QMessageBox.about(self,"Information", "In this window you setup the needed values the system needs in order for you to be able to train a new or an existing model")
+
+#Thread for classification process
 class ThreadClass(QtCore.QThread):
 
     global ImagePath
@@ -106,6 +91,9 @@ class ThreadClass(QtCore.QThread):
         Preds3 = Prediction('Three_Classes', self.ImagePath)
         ThreadClass.TwoClassPred=Preds2
         ThreadClass.ThreeClassPred=Preds3
+
+    def closeEvent(self, event):
+        sys.exit(0)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
